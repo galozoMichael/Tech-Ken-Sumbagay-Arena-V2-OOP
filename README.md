@@ -12,4 +12,7 @@ JohnFranklineGo - John Frankline R. Go<br>
 * [UML Diagram](#uml-diagram)
 
 ## 📊 UML Diagram
+<img width="8192" height="5005" alt="Untitled diagram-2026-04-20-033039" src="https://github.com/user-attachments/assets/4b42eac6-a1ad-46a4-896a-2d6f41239693" />
+
+## 💠Case Diagram
 
