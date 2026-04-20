@@ -7,6 +7,7 @@
 ## 👥 The Team "RB19 - Real Bisaya 19"
 galozoMichael - Michael S. Galozo<br>
 JohnFranklineGo - John Frankline R. Go<br>
+karlVincentIllusorio - Karl Vincent V. Illusorio<br>
 
 ## 📖 Table of Contents
 * [UML Diagram](#uml-diagram)
