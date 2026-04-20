@@ -9,6 +9,7 @@ galozoMichael - Michael S. Galozo<br>
 JohnFranklineGo - John Frankline R. Go<br>
 karlVincentIllusorio - Karl Vincent V. Illusorio<br>
 jarrellhomecillo - Jarrell Nett D. Homecillo<br>
+JEdi3k - Jose Ely P. Perez<br>
 
 
 ## 📖 Table of Contents
