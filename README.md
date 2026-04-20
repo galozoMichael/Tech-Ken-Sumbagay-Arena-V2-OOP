@@ -15,4 +15,4 @@ JohnFranklineGo - John Frankline R. Go<br>
 <img width="8192" height="5005" alt="Untitled diagram-2026-04-20-033039" src="https://github.com/user-attachments/assets/4b42eac6-a1ad-46a4-896a-2d6f41239693" />
 
 ## 💠Case Diagram
-
+<img width="1758" height="1728" alt="Case Diagram Digital" src="https://github.com/user-attachments/assets/e26d9bed-92b3-46d4-ba31-3962d756fad8" />
