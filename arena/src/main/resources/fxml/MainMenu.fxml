@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.techken.ui.MainMenuController"
+      styleClass="root-pane"
+      alignment="CENTER"
+      spacing="20">
+
+    <Label text="★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★" styleClass="stars"/>
+
+    <VBox alignment="CENTER" spacing="4">
+        <Label text="TECH KEN" styleClass="title-main"/>
+        <Label text="SUMBAGAY  ARENA" styleClass="title-sub"/>
+    </VBox>
+
+    <Label text="★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★" styleClass="stars"/>
+
+    <VBox alignment="CENTER" spacing="12" style="-fx-padding: 30 0 0 0;">
+        <Button text="[ PLAY ]" styleClass="menu-btn" onAction="#onPlay" maxWidth="200"/>
+        <Button text="[ EXIT ]" styleClass="menu-btn-exit" onAction="#onExit" maxWidth="200"/>
+    </VBox>
+
+</VBox>
