@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="root-pane" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.techken.ui.MainMenuController">
 
+    <VBox spacing="25" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="60.0">
 
-<AnchorPane styleClass="root-pane" stylesheets="@../css/style.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.techken.ui.MainMenuController">
+        <ImageView fitWidth="420.0" preserveRatio="true" styleClass="main-logo">
+            <image>
+                <Image url="@../Images/Tech-KEN-TITLE-BG.png" />
+            </image>
+        </ImageView>
 
-    <VBox spacing="10" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="80.0">
+        <Region prefHeight="40" />
 
-        <VBox spacing="-10">
-            <Label styleClass="title-main" text="TECH-KEN" />
-            <Label styleClass="title-sub" text="SUMBAGAY ARENA" />
-        </VBox>
-
-        <Region prefHeight="30" />
-
-        <Button onAction="#Play" styleClass="menu-btn" fx:id="startBtn" text="START GAME" />
+        <Button fx:id="startBtn" onAction="#Play" styleClass="menu-btn" text="START GAME" />
         <Button onAction="#CharacterSelect" styleClass="menu-btn" text="CHARACTER SELECT" />
         <Button onAction="#HowToPlay" styleClass="menu-btn" text="HOW TO PLAY" />
         <Button onAction="#Credits" styleClass="menu-btn" text="CREDITS" />
@@ -25,7 +25,7 @@
     </VBox>
 
     <HBox spacing="20" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="40.0">
-        <Button onAction ="#Settings" styleClass="icon-btn" text="⚙ SETTINGS" />
+        <Button onAction="#Settings" styleClass="icon-btn" text="⚙ SETTINGS" />
     </HBox>
 
 </AnchorPane>

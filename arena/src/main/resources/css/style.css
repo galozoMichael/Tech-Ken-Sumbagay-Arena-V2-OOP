@@ -1,6 +1,6 @@
 .root-pane {
     -fx-background-color: #050505;
-    -fx-background-image: url("/images/tech-kenbg.jpg");
+    -fx-background-image: url("/images/TECH-KENBG1.png");
     -fx-background-size: cover;
     -fx-background-position: center;
 }
@@ -24,47 +24,79 @@
 
 /* --- STANDARD MENU BUTTONS DESIGN --- */
 .menu-btn {
-    /* Metallic silver gradient */
-    -fx-background-color: linear-gradient(to right, rgba(100,105,110,0.85), rgba(140,145,150,0.85));
-    -fx-text-fill: #ffffff;
-    -fx-font-family: "Arial Black";
-    -fx-font-size: 16px;
-    -fx-pref-width: 320;
-    -fx-pref-height: 45;
-    -fx-alignment: center-left;
-    -fx-padding: 0 0 0 50;
+    /* Make sure to load your newly colored gold/red button image here! */
+    -fx-background-image: url("/Images/BUTTONRED.png");
+    -fx-background-size: 100% 100%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
 
-    /* mao ni mo bend */
-    -fx-shape: "M 15 0 L 320 0 L 305 45 L 0 45 Z";
+    -fx-font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 17px;
+    -fx-letter-spacing: 5px;
 
-    -fx-border-color: #cccccc; /* Silver border */
-    -fx-border-width: 2;
+    /* A rich, muted metallic gold for the resting state */
+    -fx-text-fill: #D4AF37;
+
+    -fx-pref-width: 340;
+    -fx-pref-height: 50;
+
+    -fx-alignment: center;
+    -fx-padding: 0;
+    -fx-border-width: 0;
     -fx-cursor: hand;
+    -fx-opacity: 0.85;
+
+    /* A heavy black shadow to anchor the gold text */
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.9), 3, 0.0, 1, 1);
 }
 
 /* HOVER SA BUTTON DESIGN */
 .menu-btn:hover {
-    -fx-background-color: linear-gradient(to right, rgba(180,0,0,0.95), rgba(220,20,20,0.95));
-    -fx-text-fill: #ffffff;
-    -fx-border-color: #ff3333;
-    -fx-effect: dropshadow(three-pass-box, rgba(204, 0, 0, 0.8), 15, 0, 0, 0);
+    -fx-background-color: transparent;
+    -fx-background-image: url("/Images/BUTTONRED.png");
+    -fx-opacity: 1.0;
+
+    /* Flares up to a bright, piercing tournament gold */
+    -fx-text-fill: #FFD700;
+
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+
+    /* THE THEME SWAP: A heavy, blood-red aura instead of cyan */
+    -fx-effect: dropshadow(three-pass-box, rgba(204, 0, 0, 0.9), 25, 0.6, 0, 0);
+}
+.icon-btn:hover {
+    /* Subtle gold hover for the settings gear */
+    -fx-text-fill: #D4AF37;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
 }
 
-/* --- BOTTOM LEFT ICONS --- */
 .icon-btn {
     -fx-background-color: transparent;
     -fx-text-fill: #888888;
-    -fx-font-family: "Arial";
+    -fx-font-family: "Trebuchet MS", sans-serif;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
+    -fx-letter-spacing: 2px;
     -fx-cursor: hand;
-}
-
-.icon-btn:hover {
-    -fx-text-fill: #ffffff;
 }
 
 /* temporary css para black ang background sa character select just remove :D */
 .character-pane {
     -fx-background-color: #0a0a0a;
 }
+
+.main-logo {
+    /* Keep the heavy black shadow to separate it from the darkened background */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.95), 40, 0.4, 0, 10);
+}
+
+.main-logo:hover {
+    /* Swap the title hover glow to match the red theme */
+    -fx-effect: dropshadow(three-pass-box, rgba(204, 0, 0, 0.6), 50, 0.3, 0, 0);
+    -fx-cursor: crosshair;
+}
+
