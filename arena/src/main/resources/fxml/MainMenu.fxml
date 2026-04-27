@@ -3,6 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+
+
 <AnchorPane styleClass="root-pane" stylesheets="@../css/style.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.techken.ui.MainMenuController">
 
     <VBox spacing="10" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="80.0">
@@ -14,7 +16,7 @@
 
         <Region prefHeight="30" />
 
-        <Button onAction="#Play" styleClass="menu-btn" text="START GAME" />
+        <Button onAction="#Play" styleClass="menu-btn" fx:id="startBtn" text="START GAME" />
         <Button onAction="#CharacterSelect" styleClass="menu-btn" text="CHARACTER SELECT" />
         <Button onAction="#HowToPlay" styleClass="menu-btn" text="HOW TO PLAY" />
         <Button onAction="#Credits" styleClass="menu-btn" text="CREDITS" />

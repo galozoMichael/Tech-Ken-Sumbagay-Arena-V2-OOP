@@ -63,3 +63,8 @@
 .icon-btn:hover {
     -fx-text-fill: #ffffff;
 }
+
+/* temporary css para black ang background sa character select just remove :D */
+.character-pane {
+    -fx-background-color: #0a0a0a;
+}
