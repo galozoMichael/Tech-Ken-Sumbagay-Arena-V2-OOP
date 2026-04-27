@@ -2,12 +2,34 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.techken.ui.CharacterSelectController"
             prefHeight="720.0" prefWidth="1280.0"
             styleClass="character-pane"
             stylesheets="@../css/style.css">
+
+    <Button text="◀ BACK" styleClass="back-btn" AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="40.0" />
+
+    <Label text="SELECT YOUR FIGHTER" styleClass="title-select" AnchorPane.topAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" alignment="CENTER" />
+
+    <GridPane fx:id="rosterGrid" hgap="15" vgap="15" alignment="CENTER"
+              AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
+
+        <Region styleClass="char-slot" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Region styleClass="char-slot" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Region styleClass="char-slot" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+        <Region styleClass="char-slot" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+        <Region styleClass="char-slot" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Region styleClass="char-slot" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Region styleClass="char-slot" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <Region styleClass="char-slot" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+    </GridPane>
+
+    <Button text="LOCK IN" styleClass="lock-btn" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="500.0" />
 
 </AnchorPane>
