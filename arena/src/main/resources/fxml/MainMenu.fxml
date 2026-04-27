@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.techken.ui.MainMenuController"
-      styleClass="root-pane"
-      alignment="CENTER"
-      spacing="20">
+<AnchorPane styleClass="root-pane" stylesheets="@../css/style.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.techken.ui.MainMenuController">
 
-    <Label text="★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★" styleClass="stars"/>
+    <VBox spacing="10" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="80.0">
 
-    <VBox alignment="CENTER" spacing="4">
-        <Label text="TECH KEN" styleClass="title-main"/>
-        <Label text="SUMBAGAY  ARENA" styleClass="title-sub"/>
+        <VBox spacing="-10">
+            <Label styleClass="title-main" text="TECH-KEN" />
+            <Label styleClass="title-sub" text="SUMBAGAY ARENA" />
+        </VBox>
+
+        <Region prefHeight="30" />
+
+        <Button onAction="#Play" styleClass="menu-btn" text="START GAME" />
+        <Button onAction="#CharacterSelect" styleClass="menu-btn" text="CHARACTER SELECT" />
+        <Button onAction="#HowToPlay" styleClass="menu-btn" text="HOW TO PLAY" />
+        <Button onAction="#Credits" styleClass="menu-btn" text="CREDITS" />
+        <Button onAction="#Exit" styleClass="menu-btn" text="EXIT" />
+
     </VBox>
 
-    <Label text="★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★" styleClass="stars"/>
+    <HBox spacing="20" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="40.0">
+        <Button onAction ="#Settings" styleClass="icon-btn" text="⚙ SETTINGS" />
+    </HBox>
 
-    <VBox alignment="CENTER" spacing="12" style="-fx-padding: 30 0 0 0;">
-        <Button text="[ PLAY ]" styleClass="menu-btn" onAction="#onPlay" maxWidth="200"/>
-        <Button text="[ EXIT ]" styleClass="menu-btn-exit" onAction="#onExit" maxWidth="200"/>
-    </VBox>
-
-</VBox>
+</AnchorPane>

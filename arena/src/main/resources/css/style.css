@@ -1,56 +1,65 @@
 .root-pane {
-    -fx-background-color: #0d0d0d;
-    -fx-padding: 60;
+    -fx-background-color: #050505;
+    -fx-background-image: url("/images/tech-kenbg.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
 }
 
+/* --- THE TITLES --- */
 .title-main {
-    -fx-text-fill: #f5c518;
-    -fx-font-family: "Courier New";
-    -fx-font-size: 52px;
-    -fx-font-weight: bold;
+    /* TITLE DESIGN */
+    -fx-text-fill: linear-gradient(to bottom, #ffffff, #a3a3a3, #555555);
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 72px;
+    -fx-font-style: italic;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.9), 10, 0, 5, 5);
 }
 
 .title-sub {
-    -fx-text-fill: #ffffff;
-    -fx-font-family: "Courier New";
+    -fx-text-fill: #cc0000; /* Deep red */
+    -fx-font-family: "Arial Black";
     -fx-font-size: 20px;
-    -fx-letter-spacing: 8px;
+    -fx-letter-spacing: 6px;
 }
 
-.stars {
-    -fx-text-fill: #cc0000;
-    -fx-font-family: "Courier New";
-    -fx-font-size: 16px;
-}
-
+/* --- STANDARD MENU BUTTONS DESIGN --- */
 .menu-btn {
-    -fx-background-color: transparent;
-    -fx-text-fill: #f5c518;
-    -fx-font-family: "Courier New";
-    -fx-font-size: 22px;
-    -fx-font-weight: bold;
-    -fx-border-color: #f5c518;
+    /* Metallic silver gradient */
+    -fx-background-color: linear-gradient(to right, rgba(100,105,110,0.85), rgba(140,145,150,0.85));
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 16px;
+    -fx-pref-width: 320;
+    -fx-pref-height: 45;
+    -fx-alignment: center-left;
+    -fx-padding: 0 0 0 50;
+
+    /* mao ni mo bend */
+    -fx-shape: "M 15 0 L 320 0 L 305 45 L 0 45 Z";
+
+    -fx-border-color: #cccccc; /* Silver border */
     -fx-border-width: 2;
     -fx-cursor: hand;
 }
 
+/* HOVER SA BUTTON DESIGN */
 .menu-btn:hover {
-    -fx-background-color: #f5c518;
-    -fx-text-fill: #0d0d0d;
+    -fx-background-color: linear-gradient(to right, rgba(180,0,0,0.95), rgba(220,20,20,0.95));
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ff3333;
+    -fx-effect: dropshadow(three-pass-box, rgba(204, 0, 0, 0.8), 15, 0, 0, 0);
 }
 
-.menu-btn-exit {
+/* --- BOTTOM LEFT ICONS --- */
+.icon-btn {
     -fx-background-color: transparent;
-    -fx-text-fill: #cc0000;
-    -fx-font-family: "Courier New";
-    -fx-font-size: 22px;
+    -fx-text-fill: #888888;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-border-color: #cc0000;
-    -fx-border-width: 2;
     -fx-cursor: hand;
 }
 
-.menu-btn-exit:hover {
-    -fx-background-color: #cc0000;
-    -fx-text-fill: #0d0d0d;
+.icon-btn:hover {
+    -fx-text-fill: #ffffff;
 }
