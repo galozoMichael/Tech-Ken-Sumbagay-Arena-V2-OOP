@@ -17,8 +17,7 @@
         <Region prefHeight="40" />
 
         <Button fx:id="startBtn" onAction="#Play" styleClass="menu-btn" text="START GAME" />
-        <Button onAction="#CharacterSelect" styleClass="menu-btn" text="CHARACTER SELECT" />
-        <Button onAction="#HowToPlay" styleClass="menu-btn" text="HOW TO PLAY" />
+        <Button onAction="#Profile" styleClass="menu-btn" text="PROFILE" />
         <Button onAction="#Credits" styleClass="menu-btn" text="CREDITS" />
         <Button onAction="#Exit" styleClass="menu-btn" text="EXIT" />
 
