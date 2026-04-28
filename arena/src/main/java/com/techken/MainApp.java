@@ -4,8 +4,26 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class MainApp extends Application {
+
+    public static MediaPlayer mediaPlayer;
+    private static String currentTrack = "";
+    public static void playMusic(String filename) {
+        if (currentTrack.equals(filename)) return;
+
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
+        currentTrack = filename;
+        String path = MainApp.class.getResource("/audio/" + filename).toExternalForm();
+        Media media = new Media(path);
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+    }
 
     @Override
     public void start(Stage stage) throws Exception {

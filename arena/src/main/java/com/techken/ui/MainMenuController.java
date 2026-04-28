@@ -1,5 +1,6 @@
 package com.techken.ui;
 
+import com.techken.MainApp;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,4 +36,8 @@ public class MainMenuController {
     @FXML private void Settings() { System.out.println("Settings"); }
 
     @FXML private void Exit() { Platform.exit(); }
+
+    @FXML public void initialize() {
+        MainApp.playMusic("menutestaudio.mp3");
+    }
 }

@@ -1,5 +1,11 @@
 package com.techken.ui;
 
-public class CharacterSelectController {
+import com.techken.MainApp;
+import javafx.fxml.FXML;
 
+public class CharacterSelectController {
+    @FXML
+    public void initialize() {
+        MainApp.playMusic("menutestaudio.mp3");
+    }
 }
