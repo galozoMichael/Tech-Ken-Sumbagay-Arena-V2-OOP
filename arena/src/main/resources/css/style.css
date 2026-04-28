@@ -163,3 +163,96 @@
     -fx-effect: dropshadow(three-pass-box, #ff0000, 25, 0.6, 0, 0);
 }
 
+
+/* =========================================
+   --- CHARACTER INFO PANEL ---
+   ========================================= */
+
+.info-panel {
+    /* Creates a dark, frosted glass background behind the text */
+    -fx-background-color: rgba(15, 15, 15, 0.95);
+    -fx-padding: 20;
+
+    /* Adds a metallic gold border around the box */
+    -fx-border-color: #D4AF37;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+
+    /* A heavy red glowing shadow underneath the box */
+    -fx-effect: dropshadow(three-pass-box, rgba(204, 0, 0, 0.8), 30, 0.4, 0, 5);
+}
+
+.char-name-text {
+    -fx-font-family: "Trebuchet MS", "Arial Black", sans-serif;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff3333; /* Aggressive bright red */
+    -fx-letter-spacing: 3px;
+    /* Black shadow on the text to make it readable anywhere */
+    -fx-effect: dropshadow(one-pass-box, black, 4, 1.0, 2, 2);
+}
+
+.char-bio-text {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: #ffffff; /* Pure white for perfect readability */
+    -fx-padding: 10 0 10 0; /* Gives the bio room to breathe */
+    -fx-effect: dropshadow(one-pass-box, black, 2, 1.0, 1, 1);
+}
+
+.char-stats-text {
+    -fx-font-family: "Impact", "Trebuchet MS", sans-serif;
+    -fx-font-size: 22px;
+    -fx-text-fill: #FFD700; /* Bright tournament gold */
+    -fx-letter-spacing: 2px;
+    -fx-effect: dropshadow(one-pass-box, black, 3, 1.0, 2, 2);
+}
+
+
+
+/* =========================================
+   --- CHARACTER INFO PANEL ---
+   ========================================= */
+
+.info-panel {
+    /* Creates a dark, frosted glass background behind the text */
+    -fx-background-color: rgba(15, 15, 15, 0.95);
+    -fx-padding: 20;
+
+    /* Adds a metallic gold border around the box */
+    -fx-border-color: #D4AF37;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+
+    /* A heavy red glowing shadow underneath the box */
+    -fx-effect: dropshadow(three-pass-box, rgba(204, 0, 0, 0.8), 30, 0.4, 0, 5);
+}
+
+.char-name-text {
+    -fx-font-family: "Trebuchet MS", "Arial Black", sans-serif;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff3333; /* Aggressive bright red */
+    -fx-letter-spacing: 3px;
+    /* Black shadow on the text to make it readable anywhere */
+    -fx-effect: dropshadow(one-pass-box, black, 4, 1.0, 2, 2);
+}
+
+.char-bio-text {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: #ffffff; /* Pure white for perfect readability */
+    -fx-padding: 10 0 10 0; /* Gives the bio room to breathe */
+    -fx-effect: dropshadow(one-pass-box, black, 2, 1.0, 1, 1);
+}
+
+.char-stats-text {
+    -fx-font-family: "Impact", "Trebuchet MS", sans-serif;
+    -fx-font-size: 22px;
+    -fx-text-fill: #FFD700; /* Bright tournament gold */
+    -fx-letter-spacing: 2px;
+    -fx-effect: dropshadow(one-pass-box, black, 3, 1.0, 2, 2);
+}
+
