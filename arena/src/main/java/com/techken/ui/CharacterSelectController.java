@@ -4,23 +4,22 @@ import com.techken.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class CharacterSelectController {
 
-    @FXML private ImageView characterPreview; // The big image on the left
 
-    // 1. THE VARIABLES AT THE TOP
+    @FXML private ImageView characterPreview;
+
+
     @FXML private javafx.scene.layout.VBox infoPanel;
     @FXML private javafx.scene.control.Label charNameLabel;
     @FXML private javafx.scene.control.Label charBioLabel;
     @FXML private javafx.scene.control.Label charStatsLabel;
+    @FXML private Button backBtn;
 
     @FXML
     public void initialize() {
@@ -77,21 +76,18 @@ public class CharacterSelectController {
         }
     }
 
-    // Handles returning to the main menu
     @FXML
-    public void BackToMainMenu(ActionEvent event) {
+    public void backToMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainMenu.fxml"));
             Scene scene = new Scene(loader.load(), 1280, 720);
-
-            // Re-apply the stylesheet
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) backBtn.getScene().getWindow();
             stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
+

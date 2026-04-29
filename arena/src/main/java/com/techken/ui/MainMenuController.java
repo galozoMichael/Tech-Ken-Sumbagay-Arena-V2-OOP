@@ -16,14 +16,8 @@ public class MainMenuController {
     private void Play() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/CharacterSelect.fxml"));
-
-            // FIX: Set to 1280x720 so the window doesn't suddenly shrink when switching scenes!
             Scene scene = new Scene(loader.load(), 1280, 720);
-
-            // Applies your unified master stylesheet
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
-
-            // Grabs the current window using the start button and swaps the scene
             Stage stage = (Stage) startBtn.getScene().getWindow();
             stage.setScene(scene);
 
