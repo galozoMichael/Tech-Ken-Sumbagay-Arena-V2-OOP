@@ -14,7 +14,7 @@
             </image>
         </ImageView>
 
-        <Region prefHeight="40" />
+        <Region prefHeight="40"/>
 
         <Button fx:id="startBtn" onAction="#Play" styleClass="menu-btn" text="START GAME" />
         <Button onAction="#Profile" styleClass="menu-btn" text="PROFILE" />

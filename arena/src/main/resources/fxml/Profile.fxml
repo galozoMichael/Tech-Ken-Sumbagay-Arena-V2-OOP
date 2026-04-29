@@ -47,6 +47,6 @@
             onAction="#editProfile"
             AnchorPane.bottomAnchor="60.0"
             AnchorPane.leftAnchor="470.0"
-            AnchorPane.rightAnchor="470.0" />
+            AnchorPane.rightAnchor="470.0"/>
 
 </AnchorPane>

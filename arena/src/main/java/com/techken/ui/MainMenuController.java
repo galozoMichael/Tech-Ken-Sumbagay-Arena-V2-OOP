@@ -47,7 +47,7 @@ public class MainMenuController {
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             Stage stage = (Stage) startBtn.getScene().getWindow();
             stage.setScene(scene);
-        } catch (Exception e) {
+        } catch(Exception e) {
             e.printStackTrace();
         }
     }
