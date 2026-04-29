@@ -44,7 +44,15 @@ public class MainMenuController {
 
     @FXML
     private void Settings() {
-        System.out.println("Opening Settings panel...");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Settings.fxml"));
+            Scene scene = new Scene(loader.load(), 1280, 720);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            Stage stage = (Stage) startBtn.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
