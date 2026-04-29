@@ -13,10 +13,15 @@ JEdi3k - Jose Ely P. Perez<br>
 
 
 ## 📖 Table of Contents
+* [Progress Photos](#progress-photos)
 * [UML Diagram](#uml-diagram)
+* [Case Diagram](#case-diagram)
+## 🧑‍💻 Progress Photos
+<img width="1282" height="752" alt="Main Menu Progress" src="https://github.com/user-attachments/assets/2207c5b9-f657-401b-9ef4-1d1f0eccfbfc" />
+<img width="1282" height="752" alt="Character Select Progress" src="https://github.com/user-attachments/assets/5773f523-2e0d-4fe9-acd6-7d6aea477847" />
 
 ## 📊 UML Diagram
 <img width="8192" height="5005" alt="Untitled diagram-2026-04-20-033039" src="https://github.com/user-attachments/assets/4b42eac6-a1ad-46a4-896a-2d6f41239693" />
 
-## 💠Case Diagram
+## 💠 Case Diagram
 <img width="1758" height="1728" alt="Case Diagram Digital" src="https://github.com/user-attachments/assets/e26d9bed-92b3-46d4-ba31-3962d756fad8" />
