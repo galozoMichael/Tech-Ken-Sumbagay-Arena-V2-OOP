@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
+<AnchorPane fx:id="battleArenaRoot"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.techken.ui.BattleController"
             prefHeight="720.0" prefWidth="1280.0"
-            styleClass="character-pane"
+            styleClass="battle-pane"
             stylesheets="@../css/style.css">
+
+
+    <Label fx:id="playerNameLabel" text="PLAYER 1" styleClass="char-name-text"
+           AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="50.0"/>
+    <ProgressBar fx:id="playerHealthBar" progress="1.0" prefWidth="450.0" prefHeight="30.0" styleClass="health-bar"
+                 AnchorPane.topAnchor="80.0" AnchorPane.leftAnchor="50.0"/>
+
+    <Label text="VS" styleClass="title-select" AnchorPane.topAnchor="50.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" alignment="CENTER"/>
+
+    <Label fx:id="enemyNameLabel" text="ENEMY CPU" styleClass="char-name-text" alignment="CENTER_RIGHT"
+           AnchorPane.topAnchor="30.0" AnchorPane.rightAnchor="50.0"/>
+    <ProgressBar fx:id="enemyHealthBar" progress="1.0" prefWidth="450.0" prefHeight="30.0" styleClass="health-bar"
+                 AnchorPane.topAnchor="80.0" AnchorPane.rightAnchor="50.0"/>
+
+
+    <HBox spacing="15" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" prefHeight="140.0">
+
+
+        <VBox styleClass="dialogue-box" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+            <Label fx:id="battleLogLabel" text="What will PLAYER do?" styleClass="dialogue-text" wrapText="true" />
+        </VBox>
+
+
+        <GridPane hgap="10" vgap="10" styleClass="command-box" alignment="CENTER" prefWidth="420.0">
+
+            <Button text="ATTACK" styleClass="action-btn, btn-red" onAction="#handleAttack" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Button text="SPECIAL" styleClass="action-btn, btn-blue" onAction="#handleSpecial" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+            <Button text="DEFEND" styleClass="action-btn, btn-green" onAction="#handleDefend" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Button text="RUN" styleClass="action-btn, btn-yellow" onAction="#handleRun" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        </GridPane>
+
+    </HBox>
 
 </AnchorPane>
