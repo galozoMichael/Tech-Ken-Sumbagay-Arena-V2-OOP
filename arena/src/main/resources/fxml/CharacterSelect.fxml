@@ -43,6 +43,6 @@
 
     </GridPane>
 
-    <Button text="LOCK IN" styleClass="lock-btn" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="500.0" />
+    <Button fx:id="lockInBtn" onAction="#lockIn" text="LOCK IN" styleClass="lock-btn" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="500.0" />
 
 </AnchorPane>

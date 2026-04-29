@@ -17,10 +17,15 @@ public class CharacterSelectController {
     @FXML private Label charBioLabel;
     @FXML private Label charStatsLabel;
     @FXML private Button backBtn;
+    @FXML private Button lockInBtn;
+
+    private String selectedFighterId = null; /* kinsay gi pili lol */
+
 
     @FXML
     public void selectFighter(ActionEvent event) {
         String id = ((Button) event.getSource()).getId();
+        selectedFighterId = id; /* mao ni ang id sa gi pili btw. */
         infoPanel.setVisible(true);
 
         switch (id) {
@@ -43,6 +48,29 @@ public class CharacterSelectController {
             }
         }
     }
+
+    @FXML
+    public void lockIn() {
+        if (selectedFighterId == null) {
+            infoPanel.setVisible(true);
+            updateUI("NO FIGHTER SELECTED", "", "PILI FIRST...", "POWER: ? | SPEED: ?");
+            System.out.println("Player not pick wtf!!");
+            return;
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Battle.fxml"));
+            Scene scene = new Scene(loader.load(), 1280, 720);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            Stage stage = (Stage) lockInBtn.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 
     private void updateUI(String name, String archetype, String mechanic, String stats) {
         charNameLabel.setText(name);
