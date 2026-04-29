@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0"
+            styleClass="character-pane"
+            stylesheets="@../css/style.css"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.techken.ui.ProfileController">
+
+    <!-- Title -->
+    <Label text="PLAYER PROFILE"
+           styleClass="title-select"
+           alignment="CENTER"
+           AnchorPane.topAnchor="40.0"
+           AnchorPane.leftAnchor="0.0"
+           AnchorPane.rightAnchor="0.0" />
+
+    <!-- Back Button -->
+    <Button fx:id="backBtn" text="◀ BACK"
+            styleClass="back-btn"
+            onAction="#backToMenu"
+            AnchorPane.topAnchor="30.0"
+            AnchorPane.leftAnchor="40.0" />
+
+    <!-- Profile Info Panel -->
+    <VBox spacing="20" alignment="CENTER"
+          styleClass="info-panel"
+          AnchorPane.topAnchor="130.0"
+          AnchorPane.bottomAnchor="160.0"
+          AnchorPane.leftAnchor="390.0"
+          AnchorPane.rightAnchor="390.0">
+
+        <Label fx:id="lblPlayerName" text="PLAYER NAME" styleClass="char-name-text" />
+        <Label fx:id="lblUsername"   text="@username"   styleClass="char-bio-text" />
+        <Label fx:id="lblStats"      text="WINS: 0  |  LOSSES: 0  |  WIN RATE: 0%"
+               styleClass="char-stats-text" />
+
+    </VBox>
+
+    <!-- Edit Profile Button centered -->
+    <Button fx:id="btnEditProfile" text="✏ EDIT PROFILE"
+            styleClass="menu-btn"
+            onAction="#editProfile"
+            AnchorPane.bottomAnchor="60.0"
+            AnchorPane.leftAnchor="470.0"
+            AnchorPane.rightAnchor="470.0"/>
+
+</AnchorPane>
