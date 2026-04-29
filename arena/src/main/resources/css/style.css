@@ -93,6 +93,7 @@
 
 
 /* CHARACTER SELECT PART HERE */
+
 /* The background for the character screen */
 .character-pane {
     -fx-background-color: #050505;
@@ -137,12 +138,12 @@
 }
 
 .char-slot:hover {
-    -fx-border-color: #D4AF37; /* Gold border on hover */
-    -fx-background-color: rgba(204, 0, 0, 0.3); /* Red tint on hover */
+    -fx-border-color: #D4AF37;
+    -fx-background-color: rgba(204, 0, 0, 0.3);
     -fx-effect: dropshadow(three-pass-box, rgba(204, 0, 0, 0.8), 15, 0.5, 0, 0);
 }
 
-/* The Lock In / Fight Button */
+/* The Lock In Button */
 .lock-btn {
     -fx-background-color: rgba(20, 20, 20, 0.9);
     -fx-border-color: #D4AF37;
@@ -164,22 +165,19 @@
 }
 
 
-/* =========================================
-   --- CHARACTER INFO PANEL ---
-   ========================================= */
-
+/* CHARACTER INFO PANEL  */
 .info-panel {
-    /* Creates a dark, frosted glass background behind the text */
+
     -fx-background-color: rgba(15, 15, 15, 0.95);
     -fx-padding: 20;
 
-    /* Adds a metallic gold border around the box */
+
     -fx-border-color: #D4AF37;
     -fx-border-width: 2;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
 
-    /* A heavy red glowing shadow underneath the box */
+
     -fx-effect: dropshadow(three-pass-box, rgba(204, 0, 0, 0.8), 30, 0.4, 0, 5);
 }
 
@@ -187,46 +185,43 @@
     -fx-font-family: "Trebuchet MS", "Arial Black", sans-serif;
     -fx-font-size: 32px;
     -fx-font-weight: bold;
-    -fx-text-fill: #ff3333; /* Aggressive bright red */
+    -fx-text-fill: #ff3333;
     -fx-letter-spacing: 3px;
-    /* Black shadow on the text to make it readable anywhere */
+
     -fx-effect: dropshadow(one-pass-box, black, 4, 1.0, 2, 2);
 }
 
 .char-bio-text {
     -fx-font-family: "Segoe UI", "Arial", sans-serif;
     -fx-font-size: 16px;
-    -fx-text-fill: #ffffff; /* Pure white for perfect readability */
-    -fx-padding: 10 0 10 0; /* Gives the bio room to breathe */
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10 0 10 0;
     -fx-effect: dropshadow(one-pass-box, black, 2, 1.0, 1, 1);
 }
 
 .char-stats-text {
     -fx-font-family: "Impact", "Trebuchet MS", sans-serif;
     -fx-font-size: 22px;
-    -fx-text-fill: #FFD700; /* Bright tournament gold */
+    -fx-text-fill: #FFD700;
     -fx-letter-spacing: 2px;
     -fx-effect: dropshadow(one-pass-box, black, 3, 1.0, 2, 2);
 }
 
 
 
-/* =========================================
-   --- CHARACTER INFO PANEL ---
-   ========================================= */
-
+/*  CHARACTER INFO PANEL  */
 .info-panel {
-    /* Creates a dark, frosted glass background behind the text */
+
     -fx-background-color: rgba(15, 15, 15, 0.95);
     -fx-padding: 20;
 
-    /* Adds a metallic gold border around the box */
+
     -fx-border-color: #D4AF37;
     -fx-border-width: 2;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
 
-    /* A heavy red glowing shadow underneath the box */
+
     -fx-effect: dropshadow(three-pass-box, rgba(204, 0, 0, 0.8), 30, 0.4, 0, 5);
 }
 
@@ -234,25 +229,56 @@
     -fx-font-family: "Trebuchet MS", "Arial Black", sans-serif;
     -fx-font-size: 32px;
     -fx-font-weight: bold;
-    -fx-text-fill: #ff3333; /* Aggressive bright red */
+    -fx-text-fill: #ff3333;
     -fx-letter-spacing: 3px;
-    /* Black shadow on the text to make it readable anywhere */
+
     -fx-effect: dropshadow(one-pass-box, black, 4, 1.0, 2, 2);
 }
 
 .char-bio-text {
     -fx-font-family: "Segoe UI", "Arial", sans-serif;
     -fx-font-size: 16px;
-    -fx-text-fill: #ffffff; /* Pure white for perfect readability */
-    -fx-padding: 10 0 10 0; /* Gives the bio room to breathe */
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10 0 10 0;
     -fx-effect: dropshadow(one-pass-box, black, 2, 1.0, 1, 1);
 }
 
 .char-stats-text {
     -fx-font-family: "Impact", "Trebuchet MS", sans-serif;
     -fx-font-size: 22px;
-    -fx-text-fill: #FFD700; /* Bright tournament gold */
+    -fx-text-fill: #FFD700;
     -fx-letter-spacing: 2px;
     -fx-effect: dropshadow(one-pass-box, black, 3, 1.0, 2, 2);
 }
 
+
+/* ROSTER GRID PORTRAITS */
+#btnHeihachi {
+    -fx-background-image: url("/Images/HEIHACHI-icon.jpg");
+    -fx-background-size: cover;
+}
+
+#btnDevilJin {
+    -fx-background-image: url("/Images/DevilJin-icon.jpg");
+    -fx-background-size: cover;
+}
+
+#btnJohnnyCage {
+    -fx-background-image: url("/Images/johnny-icon.png");
+    -fx-background-size: cover;
+}
+
+#btnReptile {
+    -fx-background-image: url("/Images/Reptile-icon.png");
+    -fx-background-size: cover;
+}
+
+#btnScorpion {
+    -fx-background-image: url("/Images/Scorpion-icon.png");
+    -fx-background-size: cover;
+}
+
+#btnLiuKang {
+    -fx-background-image: url("/Images/LiuKang-icon.jpg");
+    -fx-background-size: cover;
+}

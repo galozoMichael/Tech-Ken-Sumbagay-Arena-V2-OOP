@@ -11,22 +11,35 @@
             styleClass="character-pane"
             stylesheets="@../css/style.css">
 
-
     <Label text="SELECT YOUR FIGHTER" styleClass="title-select" AnchorPane.topAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" alignment="CENTER" />
     <Button fx:id="backBtn" onAction="#backToMenu" text="◀ BACK" styleClass="back-btn" AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="40.0" />
 
+
+    <ImageView fx:id="characterPreview" fitWidth="400.0" preserveRatio="true"
+               AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" />
+
+    <VBox fx:id="infoPanel" visible="false" spacing="10" alignment="CENTER"
+          AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0"
+          styleClass="info-panel">
+
+        <Label fx:id="charNameLabel" text="CHARACTER NAME" styleClass="char-name-text" />
+        <Label fx:id="charBioLabel" text="Character bio goes here..." styleClass="char-bio-text" wrapText="true" textAlignment="CENTER" />
+        <Label fx:id="charStatsLabel" text="POWER: A | SPEED: B | TECH: S" styleClass="char-stats-text" />
+
+    </VBox>
+
     <GridPane fx:id="rosterGrid" hgap="15" vgap="15" alignment="CENTER"
-              AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
+              AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
 
-        <Region styleClass="char-slot" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <Region styleClass="char-slot" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-        <Region styleClass="char-slot" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-        <Region styleClass="char-slot" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+        <Button fx:id="btnHeihachi" styleClass="char-slot" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#selectFighter"/>
+        <Button fx:id="btnDevilJin" styleClass="char-slot" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#selectFighter"/>
+        <Button fx:id="btnJohnnyCage" styleClass="char-slot" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#selectFighter"/>
+        <Button fx:id="btnReptile" styleClass="char-slot" GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#selectFighter"/>
 
-        <Region styleClass="char-slot" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <Region styleClass="char-slot" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-        <Region styleClass="char-slot" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-        <Region styleClass="char-slot" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+        <Button fx:id="btnScorpion" styleClass="char-slot" GridPane.columnIndex="0" GridPane.rowIndex="1" onAction="#selectFighter"/>
+        <Button fx:id="btnLiuKang" styleClass="char-slot" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#selectFighter"/>
+        <Button fx:id="btnChar7" styleClass="char-slot" GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#selectFighter"/>
+        <Button fx:id="btnChar8" styleClass="char-slot" GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#selectFighter"/>
 
     </GridPane>
 
