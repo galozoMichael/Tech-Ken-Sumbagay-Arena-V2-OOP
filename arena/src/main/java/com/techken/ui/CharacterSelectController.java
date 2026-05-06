@@ -1,6 +1,8 @@
 package com.techken.ui;
 
 import com.techken.MainApp;
+import com.techken.model.BaseCharacter;
+import com.techken.model.fighters.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import java.util.Random;
 
 public class CharacterSelectController {
 
@@ -20,14 +23,14 @@ public class CharacterSelectController {
     @FXML private Button lockInBtn;
 
     private String selectedFighterId = null; /* kinsay gi pili lol */
-
+    private final Random random = new Random(); /* this for cpu random pick */
 
     @FXML
     public void selectFighter(ActionEvent event) {
         String id = ((Button) event.getSource()).getId();
         selectedFighterId = id; /* mao ni ang id sa gi pili btw. */
         infoPanel.setVisible(true);
-
+        // TODO: need to fix this, I removed speed feature so kaylangan sa need e revise.
         switch (id) {
             case "btnHeihachi" -> updateUI("HEIHACHI MISHIMA", "TANK",
                     "High Health & Defense, Heavy Attacks, low speed.", "POWER: S | SPEED: C");
@@ -49,6 +52,38 @@ public class CharacterSelectController {
         }
     }
 
+    /**
+     * Mo make og object from BaseCharacter after lock in button confirmed
+     */
+
+    private BaseCharacter createCharacterFromId(String id) {
+        return switch (id) {
+            case "btnHeihachi" -> new HeihachiMisihima();
+            case "btnDevilJin" -> new DevilJin();
+            case "btnJohnnyCage" -> new JohnnyCage();
+            case "btnReptile" -> new Reptile();
+            case "btnScorpion" -> new Scorpion();
+            case "btnLiuKang" -> new LiuKang();
+            default -> null;
+        };
+    }
+
+    /**
+     * CPU Character random pick, basically mo random from 1-6 lol
+     */
+    private BaseCharacter selectCPUCharacter() {
+        int pick = random.nextInt(6) + 1;
+        return switch (pick) {
+            case 1 -> new HeihachiMisihima();
+            case 2 -> new DevilJin();
+            case 3 -> new JohnnyCage();
+            case 4 -> new Reptile();
+            case 5 -> new Scorpion();
+            default -> new LiuKang();
+        };
+    }
+
+
     @FXML
     public void lockIn() {
         if (selectedFighterId == null) {
@@ -58,10 +93,31 @@ public class CharacterSelectController {
             return;
         }
 
+        /*
+        *  Check in case blank or not picked and pressed the lock in. para di mohimo og object
+        * */
+        BaseCharacter playerCharacter = createCharacterFromId(selectedFighterId);
+        if (playerCharacter == null) {
+            updateUI("ERROR", "", "Invalid fighter selection", "");
+            return;
+        }
+
+        // same ranis taas needed para e pass natos battlecontroller.
+        BaseCharacter cpuCharacter = selectCPUCharacter();
+
+        // for logging purposes maybe remove this latur
+        System.out.println("Player selected: " + playerCharacter.getName());
+        System.out.println("CPU Selected: " + cpuCharacter.getName());
+
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Battle.fxml"));
             Scene scene = new Scene(loader.load(), 1280, 720);
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+
+            // this to pass the characters to BattleController.java
+            BattleController battleController = loader.getController();
+            //battleController.initMatch(playerCharacter, cpuCharacter)
             Stage stage = (Stage) lockInBtn.getScene().getWindow();
             stage.setScene(scene);
         } catch (Exception e) {

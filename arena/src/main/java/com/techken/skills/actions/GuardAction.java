@@ -10,6 +10,7 @@ public class GuardAction extends BaseSkill {
         this.defenseBoost = defenseBoost;
     }
 
+    @Override
     public int getDefenseBoost() {
         return defenseBoost;
     }

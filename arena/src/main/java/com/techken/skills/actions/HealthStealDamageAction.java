@@ -8,11 +8,19 @@ public class HealthStealDamageAction extends BaseSkill {
         this.damage = damage;
     }
 
+    @Override
     public int getDamage() {
         return damage;
+    }
+
+    @Override
+    public int getHealAmount(int damageDealt) {
+        return damageDealt / 2;
     }
 
     public void setDamage(int damage) {
         this.damage = damage;
     }
+
+
 }

@@ -12,7 +12,7 @@
             prefHeight="720.0" prefWidth="1280.0"
             styleClass="battle-pane"
             stylesheets="@../css/style.css"
-            onMouseClicked="#onDialogueClick">
+            onMouseClicked="#onDialogueClickStart">
 
     <!-- TURN COUNTER (top center) -->
     <Label fx:id="turnLabel" text="TURN 1" styleClass="dialogue-text"
@@ -47,7 +47,7 @@
 
         <!-- DIALOGUE BOX (left side, click to advance) -->
         <VBox fx:id="dialogueBox" alignment="CENTER_LEFT" styleClass="dialogue-box"
-              HBox.hgrow="ALWAYS" onMouseClicked="#onDialogueClick"
+              HBox.hgrow="ALWAYS" onMouseClicked="#onDialogueClickStart"
               prefHeight="180" minWidth="640">
             <Label fx:id="battleLogLabel" text="Waiting for match..."
                    styleClass="dialogue-text" wrapText="true"

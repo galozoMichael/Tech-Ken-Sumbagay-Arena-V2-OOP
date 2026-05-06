@@ -10,6 +10,7 @@ public class AttackAction extends BaseSkill {
         this.damage = damage;
     }
 
+    @Override
     public int getDamage() {
         return damage;
     }
