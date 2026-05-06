@@ -52,7 +52,7 @@ public class CharacterSelectController {
 
     @FXML
     public void initialize() {
-        MainApp.playMusic("menutestaudio.mp3");
+        MainApp.playMusic("SelectYourCharacter.mp3");
     }
 
     @FXML
