@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="root-pane" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.techken.ui.SettingsController">
+
+    <VBox spacing="25" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="60.0">
+
+        <ImageView fitWidth="420.0" preserveRatio="true" styleClass="main-logo">
+            <image>
+                <Image url="@../Images/Tech-KEN-TITLE-BG.png" />
+            </image>
+        </ImageView>
+
+        <Region prefHeight="20"/>
+
+        <Label styleClass="settings-title" text="SETTINGS" />
+
+        <Region prefHeight="10"/>
+
+        <!-- Audio Settings -->
+        <Label styleClass="settings-section-label" text="AUDIO" />
+
+        <HBox spacing="20" alignment="CENTER_LEFT">
+            <Label styleClass="settings-label" text="Music Volume" />
+            <Slider fx:id="musicSlider" min="0" max="100" value="80" prefWidth="250.0" styleClass="settings-slider" onMouseReleased="#onMusicVolumeChanged" />
+            <Label fx:id="musicValueLabel" styleClass="settings-value-label" text="80%" />
+        </HBox>
+
+        <HBox spacing="20" alignment="CENTER_LEFT">
+            <Label styleClass="settings-label" text="SFX Volume" />
+            <Slider fx:id="sfxSlider" min="0" max="100" value="100" prefWidth="250.0" styleClass="settings-slider" onMouseReleased="#onSfxVolumeChanged" />
+            <Label fx:id="sfxValueLabel" styleClass="settings-value-label" text="100%" />
+        </HBox>
+
+        <Region prefHeight="10"/>
+
+        <!-- Display Settings -->
+        <Label styleClass="settings-section-label" text="DISPLAY" />
+
+        <HBox spacing="20" alignment="CENTER_LEFT">
+            <Label styleClass="settings-label" text="Fullscreen" />
+            <CheckBox fx:id="fullscreenCheckBox" styleClass="settings-checkbox" onAction="#onFullscreenToggled" />
+        </HBox>
+
+        <HBox spacing="20" alignment="CENTER_LEFT">
+            <Label styleClass="settings-label" text="Resolution" />
+            <ComboBox fx:id="resolutionComboBox" styleClass="settings-combo" onAction="#onResolutionChanged" prefWidth="200.0" />
+        </HBox>
+
+        <Region prefHeight="10"/>
+
+        <!-- Gameplay Settings -->
+        <Label styleClass="settings-section-label" text="GAMEPLAY" />
+
+        <HBox spacing="20" alignment="CENTER_LEFT">
+            <Label styleClass="settings-label" text="Difficulty" />
+            <ComboBox fx:id="difficultyComboBox" styleClass="settings-combo" onAction="#onDifficultyChanged" prefWidth="200.0" />
+        </HBox>
+
+        <HBox spacing="20" alignment="CENTER_LEFT">
+            <Label styleClass="settings-label" text="Show Hints" />
+            <CheckBox fx:id="hintsCheckBox" styleClass="settings-checkbox" selected="true" onAction="#onHintsToggled" />
+        </HBox>
+
+        <Region prefHeight="20"/>
+
+        <!-- Action Buttons -->
+        <HBox spacing="20">
+            <Button fx:id="saveBtn" onAction="#onSave" styleClass="menu-btn" text="SAVE" />
+            <Button fx:id="resetBtn" onAction="#onReset" styleClass="menu-btn" text="RESET DEFAULTS" />
+        </HBox>
+
+    </VBox>
+
+    <HBox spacing="20" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="40.0">
+        <Button onAction="#onBack" styleClass="icon-btn" text="← BACK" />
+    </HBox>
+
+</AnchorPane>

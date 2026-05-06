@@ -17,8 +17,14 @@ JEdi3k - Jose Ely P. Perez<br>
 * [UML Diagram](#uml-diagram)
 * [Case Diagram](#case-diagram)
 ## 🧑‍💻 Progress Photos
-<img width="1282" height="752" alt="Main Menu Progress" src="https://github.com/user-attachments/assets/2207c5b9-f657-401b-9ef4-1d1f0eccfbfc" />
-<img width="1282" height="752" alt="Character Select Progress" src="https://github.com/user-attachments/assets/5773f523-2e0d-4fe9-acd6-7d6aea477847" />
+<img width="800" alt="Main Menu Progress" src="https://github.com/user-attachments/assets/16f8beba-82e3-4315-adaa-1423a3348c31" />
+<img width="800" alt="Character Select Progress" src="https://github.com/user-attachments/assets/08cdcda7-b224-4cb4-a17d-64173abfdbfd" />
+<img width="800" alt="Fight Screen Battle Progress" src="https://github.com/user-attachments/assets/035385fb-124a-4176-8908-347a30fd9e70" />
+<img width="800" alt="Player Profile Progress" src="https://github.com/user-attachments/assets/f4b0a725-3ff1-4fa9-9ae0-4ab07c424c00" />
+<img width="800" alt="Credits Page Progress" src="https://github.com/user-attachments/assets/e002d8b8-dbea-475a-bb8e-cc65839cd03f" />
+
+
+
 
 ## 📊 UML Diagram
 <img width="8192" height="5005" alt="Untitled diagram-2026-04-20-033039" src="https://github.com/user-attachments/assets/4b42eac6-a1ad-46a4-896a-2d6f41239693" />
