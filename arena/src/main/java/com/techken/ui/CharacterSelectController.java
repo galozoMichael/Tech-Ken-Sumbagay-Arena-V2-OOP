@@ -42,7 +42,7 @@ public class CharacterSelectController {
                     "Uses HealthSteal to drain enemy life to heal himself.", "POWER: B | SPEED: A");
             case "btnScorpion" -> updateUI("SCORPION", "GLASS CANNON",
                     "High Base Attack power utilizing strong offensive moves.", "POWER: S | SPEED: A");
-            case "btnLiuKang" -> updateUI("LIU KANG", "BALANCED",
+            case "btnTiger" -> updateUI("TIGER", "BALANCED",
                     "Perfectly balanced stats with moderate damage output.", "POWER: B | SPEED: B");
             default -> {
                 charNameLabel.setText("LOCKED");
@@ -63,7 +63,7 @@ public class CharacterSelectController {
             case "btnJohnnyCage" -> new JohnnyCage();
             case "btnReptile" -> new Reptile();
             case "btnScorpion" -> new Scorpion();
-            case "btnLiuKang" -> new LiuKang();
+            case "btnTiger" -> new Tiger();
             default -> null;
         };
     }
@@ -79,7 +79,7 @@ public class CharacterSelectController {
             case 3 -> new JohnnyCage();
             case 4 -> new Reptile();
             case 5 -> new Scorpion();
-            default -> new LiuKang();
+            default -> new Tiger();
         };
     }
 

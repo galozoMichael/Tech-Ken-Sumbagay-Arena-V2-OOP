@@ -37,7 +37,7 @@
         <Button fx:id="btnReptile" styleClass="char-slot" GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#selectFighter"/>
 
         <Button fx:id="btnScorpion" styleClass="char-slot" GridPane.columnIndex="0" GridPane.rowIndex="1" onAction="#selectFighter"/>
-        <Button fx:id="btnLiuKang" styleClass="char-slot" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#selectFighter"/>
+        <Button fx:id="btnTiger" styleClass="char-slot" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#selectFighter"/>
         <Button fx:id="btnChar7" styleClass="char-slot" GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#selectFighter"/>
         <Button fx:id="btnChar8" styleClass="char-slot" GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#selectFighter"/>
 

@@ -6,7 +6,7 @@ import com.techken.model.fighters.HeihachiMisihima;
 import com.techken.model.fighters.JohnnyCage;
 import com.techken.model.fighters.Reptile;
 import com.techken.model.fighters.Scorpion;
-import com.techken.model.fighters.LiuKang;
+import com.techken.model.fighters.Tiger;
 import com.techken.utils.AnsiColors;
 
 import java.util.Scanner;
@@ -132,7 +132,7 @@ private BaseCharacter selectCharacter() {
         case "3": return new JohnnyCage();
         case "4": return new Reptile();
         case "5": return new Scorpion();
-        case "6": return new LiuKang();
+        case "6": return new Tiger();
         default:
             System.out.println();
             System.out.println(AnsiColors.RED_BRIGHT + "             !! Invalid selection. Please choose 1-6. !!" + AnsiColors.RESET);
@@ -165,7 +165,7 @@ private BaseCharacter selectCharacter() {
                 return new Scorpion();
             default: // case 6
                 System.out.println("Liu Kang");
-                return new LiuKang();
+                return new Tiger();
         }
     }
 }
