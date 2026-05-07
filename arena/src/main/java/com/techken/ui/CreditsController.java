@@ -19,6 +19,7 @@ public class CreditsController {
             Scene scene = new Scene(root, 1280, 720);
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             Stage stage = (Stage) returnBtn.getScene().getWindow();
+            stage.setMaximized(false);
             stage.setScene(scene);
 
         } catch (Exception e) {

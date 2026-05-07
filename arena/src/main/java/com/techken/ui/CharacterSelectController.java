@@ -119,7 +119,9 @@ public class CharacterSelectController {
             BattleController battleController = loader.getController();
             //battleController.initMatch(playerCharacter, cpuCharacter)
             Stage stage = (Stage) lockInBtn.getScene().getWindow();
+            stage.setMaximized(false); // fix sa bug na mo minimize when switching from characterselect.fxml to battle.fxml
             stage.setScene(scene);
+            stage.setMaximized(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -146,6 +148,7 @@ public class CharacterSelectController {
             Scene scene = new Scene(loader.load(), 1280, 720);
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             Stage stage = (Stage) backBtn.getScene().getWindow();
+            stage.setMaximized(false);
             stage.setScene(scene);
         } catch (Exception e) {
             e.printStackTrace();
