@@ -437,3 +437,26 @@
     -fx-effect: dropshadow(three-pass-box, rgba(204, 0, 0, 0.6), 15, 0.4, 0, 0);
     -fx-letter-spacing: 6px;
 }
+
+.settings-section-label {
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 14px;
+    -fx-text-fill: #cc0000;
+    -fx-letter-spacing: 4px;
+    -fx-effect: dropshadow(one-pass-box, black, 4, 1.0, 1, 1);
+}
+
+.settings-label {
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 11px;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(one-pass-box, black, 4, 1.0, 1, 1);
+    -fx-min-width: 160px;
+}
+
+.settings-value-label {
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 11px;
+    -fx-text-fill: #D4AF37;
+    -fx-effect: dropshadow(one-pass-box, black, 4, 1.0, 1, 1);
+}
