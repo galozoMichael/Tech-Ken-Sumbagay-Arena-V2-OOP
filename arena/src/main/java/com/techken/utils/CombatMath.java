@@ -7,19 +7,15 @@ import com.techken.skills.actions.HealthStealDamageAction;
 
 public class CombatMath {
 
-    public int calculateDamage(BaseSkill skill, BaseCharacter defender) {
-        int baseDamage = 0;
 
-        if (skill instanceof AttackAction) {
-            baseDamage = ((AttackAction) skill).getDamage();
-        } else if (skill instanceof HealthStealDamageAction) {
-            baseDamage = ((HealthStealDamageAction) skill).getDamage();
-        } else {
+    // rework kay hugaw kaau ang instance di masabtan nako aint no way
+    public int calculateDamage(BaseSkill skill, BaseCharacter defender) {
+        int baseDamage = skill.getDamage();
+        if (baseDamage == 0) {
             return 0;
         }
-
         int finalDamage = baseDamage - defender.getDefense();
-
         return Math.max(finalDamage, 1);
+
     }
 }
