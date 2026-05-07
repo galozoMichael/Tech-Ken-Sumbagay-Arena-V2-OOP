@@ -117,7 +117,7 @@ public class CharacterSelectController {
 
             // this to pass the characters to BattleController.java
             BattleController battleController = loader.getController();
-            //battleController.initMatch(playerCharacter, cpuCharacter)
+            battleController.initMatch(playerCharacter, cpuCharacter);
             Stage stage = (Stage) lockInBtn.getScene().getWindow();
             stage.setMaximized(false); // fix sa bug na mo minimize when switching from characterselect.fxml to battle.fxml
             stage.setScene(scene);
