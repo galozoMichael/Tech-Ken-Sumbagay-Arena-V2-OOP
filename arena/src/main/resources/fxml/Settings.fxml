@@ -14,58 +14,37 @@
             </image>
         </ImageView>
 
-        <Region prefHeight="20"/>
+        <Region prefHeight="20" />
 
         <Label styleClass="settings-title" text="SETTINGS" />
 
-        <Region prefHeight="10"/>
+        <Region prefHeight="10" />
 
         <!-- Audio Settings -->
         <Label styleClass="settings-section-label" text="AUDIO" />
 
-        <HBox spacing="20" alignment="CENTER_LEFT">
+        <HBox alignment="CENTER_LEFT" spacing="20">
             <Label styleClass="settings-label" text="Music Volume" />
-            <Slider fx:id="musicSlider" min="0" max="100" value="80" prefWidth="250.0" styleClass="settings-slider" onMouseReleased="#onMusicVolumeChanged" />
+            <Slider fx:id="musicSlider" max="100" min="0" onMouseReleased="#onMusicVolumeChanged" prefWidth="250.0" styleClass="settings-slider" value="80" />
             <Label fx:id="musicValueLabel" styleClass="settings-value-label" text="80%" />
         </HBox>
 
-        <HBox spacing="20" alignment="CENTER_LEFT">
-            <Label styleClass="settings-label" text="SFX Volume" />
-            <Slider fx:id="sfxSlider" min="0" max="100" value="100" prefWidth="250.0" styleClass="settings-slider" onMouseReleased="#onSfxVolumeChanged" />
-            <Label fx:id="sfxValueLabel" styleClass="settings-value-label" text="100%" />
-        </HBox>
-
-        <Region prefHeight="10"/>
+        <Region prefHeight="10" />
 
         <!-- Display Settings -->
         <Label styleClass="settings-section-label" text="DISPLAY" />
 
-        <HBox spacing="20" alignment="CENTER_LEFT">
+        <HBox alignment="CENTER_LEFT" spacing="20">
             <Label styleClass="settings-label" text="Fullscreen" />
-            <CheckBox fx:id="fullscreenCheckBox" styleClass="settings-checkbox" onAction="#onFullscreenToggled" />
+            <CheckBox fx:id="fullscreenCheckBox" onAction="#onFullscreenToggled" styleClass="settings-checkbox" />
         </HBox>
 
-        <HBox spacing="20" alignment="CENTER_LEFT">
+        <HBox alignment="CENTER_LEFT" spacing="20">
             <Label styleClass="settings-label" text="Resolution" />
-            <ComboBox fx:id="resolutionComboBox" styleClass="settings-combo" onAction="#onResolutionChanged" prefWidth="200.0" />
+            <ComboBox fx:id="resolutionComboBox" onAction="#onResolutionChanged" prefWidth="200.0" styleClass="settings-combo" />
         </HBox>
 
-        <Region prefHeight="10"/>
-
-        <!-- Gameplay Settings -->
-        <Label styleClass="settings-section-label" text="GAMEPLAY" />
-
-        <HBox spacing="20" alignment="CENTER_LEFT">
-            <Label styleClass="settings-label" text="Difficulty" />
-            <ComboBox fx:id="difficultyComboBox" styleClass="settings-combo" onAction="#onDifficultyChanged" prefWidth="200.0" />
-        </HBox>
-
-        <HBox spacing="20" alignment="CENTER_LEFT">
-            <Label styleClass="settings-label" text="Show Hints" />
-            <CheckBox fx:id="hintsCheckBox" styleClass="settings-checkbox" selected="true" onAction="#onHintsToggled" />
-        </HBox>
-
-        <Region prefHeight="20"/>
+        <Region prefHeight="10" />
 
         <!-- Action Buttons -->
         <HBox spacing="20">
