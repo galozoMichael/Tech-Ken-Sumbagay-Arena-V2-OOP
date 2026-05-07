@@ -46,7 +46,6 @@
 
         <Region prefHeight="10" />
 
-
         <!-- Action Buttons -->
         <HBox spacing="20">
             <Button fx:id="saveBtn" onAction="#onSave" styleClass="menu-btn" text="SAVE" />
