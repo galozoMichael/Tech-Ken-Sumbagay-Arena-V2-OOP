@@ -428,3 +428,12 @@
 .btn-red, .btn-blue, .btn-green, .btn-yellow {
     -fx-background-color: transparent;
 }
+
+
+.settings-title {
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 28px;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(204, 0, 0, 0.6), 15, 0.4, 0, 0);
+    -fx-letter-spacing: 6px;
+}
