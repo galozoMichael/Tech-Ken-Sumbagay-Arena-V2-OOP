@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0"
@@ -27,26 +26,62 @@
             AnchorPane.leftAnchor="40.0" />
 
     <!-- Profile Info Panel -->
-    <VBox spacing="20" alignment="CENTER"
+    <VBox spacing="24" alignment="CENTER"
           styleClass="info-panel"
-          AnchorPane.topAnchor="130.0"
-          AnchorPane.bottomAnchor="160.0"
+          AnchorPane.topAnchor="140.0"
+          AnchorPane.bottomAnchor="120.0"
           AnchorPane.leftAnchor="390.0"
           AnchorPane.rightAnchor="390.0">
 
-        <Label fx:id="lblPlayerName" text="PLAYER NAME" styleClass="char-name-text" />
-        <Label fx:id="lblUsername"   text="@username"   styleClass="char-bio-text" />
-        <Label fx:id="lblStats"      text="WINS: 0  |  LOSSES: 0  |  WIN RATE: 0%"
-               styleClass="char-stats-text" />
+        <!-- Clickable Name -->
+        <Label fx:id="lblPlayerName"
+               text="Player1"
+               styleClass="char-name-text"
+               maxWidth="Infinity"
+               alignment="CENTER"
+               wrapText="true"
+               style="-fx-cursor: hand;" />
+
+        <!-- Hint text -->
+        <Label fx:id="lblClickHint"
+               text="click name to edit"
+               styleClass="char-bio-text"
+               alignment="CENTER"
+               maxWidth="Infinity"
+               opacity="0.5" />
+
+        <!-- Text field (hidden by default) -->
+        <TextField fx:id="txtEditName"
+                   promptText="Enter new name..."
+                   alignment="CENTER"
+                   maxWidth="300.0"
+                   visible="false"
+                   style="-fx-background-color: rgba(15,15,15,0.9);
+                          -fx-text-fill: #FFD700;
+                          -fx-border-color: #D4AF37;
+                          -fx-border-width: 2;
+                          -fx-font-size: 22px;
+                          -fx-alignment: center;" />
+
+        <!-- Stats Row -->
+        <HBox spacing="40" alignment="CENTER">
+            <Label fx:id="lblWins"
+                   text="WINS: 0"
+                   styleClass="char-stats-text"
+                   alignment="CENTER" />
+            <Label fx:id="lblLosses"
+                   text="LOSSES: 0"
+                   styleClass="char-stats-text"
+                   alignment="CENTER" />
+        </HBox>
+
+        <!-- Win Rate -->
+        <Label fx:id="lblWinRate"
+               text="WIN RATE: 0.0%"
+               styleClass="char-bio-text"
+               maxWidth="Infinity"
+               alignment="CENTER" />
 
     </VBox>
-
-    <!-- Edit Profile Button centered -->
-    <Button fx:id="btnEditProfile" text="✏ EDIT PROFILE"
-            styleClass="menu-btn"
-            onAction="#editProfile"
-            AnchorPane.bottomAnchor="60.0"
-            AnchorPane.leftAnchor="470.0"
-            AnchorPane.rightAnchor="470.0"/>
 
 </AnchorPane>
