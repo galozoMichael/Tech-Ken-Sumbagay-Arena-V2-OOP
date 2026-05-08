@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.Random;
+import javafx.scene.media.AudioClip;
 
 public class CharacterSelectController {
 
@@ -38,22 +39,28 @@ public class CharacterSelectController {
         switch (id) {
             case "btnHeihachi" -> updateUI("HEIHACHI MISHIMA", "TANK",
                     "High Health & Defense, Heavy Attacks, low speed.", "POWER: S | SPEED: C",
-                    "/images/characters/heihachi.png");
+                    "/images/characters/heihachi.png",
+                    "/audio/announcer_heihachi.mp3");
             case "btnDevilJin" -> updateUI("DEVIL JIN", "BERSERKER",
                     "Attack damage increases significantly when HP drops below 30%.", "POWER: A | SPEED: S",
-                    "/images/characters/deviljin.png");
+                    "/images/characters/heihachi.png", // /images/characters/deviljin.png * this is for voice test restore later
+                    "/audio/announcer_deviljin.mp3");
             case "btnJohnnyCage" -> updateUI("JOHNNY CAGE", "SPEEDSTER",
                     "High Evasion & Turn Priority. Strikes first.", "POWER: C | SPEED: S",
-                    "images/characters/johnnycage.png");
+                    "/images/characters/heihachi.png", // /images/characters/johnnycage.png
+                    "/audio/announcer_johnny.mp3");
             case "btnReptile" -> updateUI("REPTILE", "DEBUFFER",
                     "Uses HealthSteal to drain enemy life to heal himself.", "POWER: B | SPEED: A",
-                    "images/characters/reptile.png");
+                    "/images/characters/heihachi.png", // /images/characters/reptile.png
+                    "/audio/announcer_reptile.mp3");
             case "btnScorpion" -> updateUI("SCORPION", "GLASS CANNON",
                     "High Base Attack power utilizing strong offensive moves.", "POWER: S | SPEED: A",
-                    "images/characters/scorpion.png");
+                    "/images/characters/heihachi.png", // /images/characters/scorpion.png
+                    "/audio/announcer_scorpion.mp3");
             case "btnTiger" -> updateUI("TIGER", "BALANCED",
                     "Perfectly balanced stats with moderate damage output.", "POWER: B | SPEED: B",
-                    "images/characters/tiger.png");
+                    "/images/characters/heihachi.png", // /images/characters/tiger.png
+                    "/audio/announcer_tiger.mp3");
             default -> {
                 charNameLabel.setText("LOCKED");
                 charBioLabel.setText("Wa himuon pani");
@@ -98,7 +105,7 @@ public class CharacterSelectController {
     public void lockIn() {
         if (selectedFighterId == null) {
             infoPanel.setVisible(true);
-            updateUI("NO FIGHTER SELECTED", "", "PILI FIRST...", "POWER: ? | SPEED: ?", null);
+            updateUI("NO FIGHTER SELECTED", "", "PILI FIRST...", "POWER: ? | SPEED: ?", null, null);
             System.out.println("Player not pick wtf!!");
             return;
         }
@@ -108,7 +115,7 @@ public class CharacterSelectController {
         * */
         BaseCharacter playerCharacter = createCharacterFromId(selectedFighterId);
         if (playerCharacter == null) {
-            updateUI("ERROR", "", "Invalid fighter selection", "", null);
+            updateUI("ERROR", "", "Invalid fighter selection", "", null, null);
             return;
         }
 
@@ -140,7 +147,7 @@ public class CharacterSelectController {
 
 
 
-    private void updateUI(String name, String archetype, String mechanic, String stats, String imagePath) {
+    private void updateUI(String name, String archetype, String mechanic, String stats, String imagePath, String soundPath) {
         charNameLabel.setText(name);
         charBioLabel.setText("ARCHETYPE: " + archetype + "\n" + mechanic);
         charStatsLabel.setText(stats);
@@ -149,6 +156,13 @@ public class CharacterSelectController {
             Image portrait = new Image(getClass().getResourceAsStream(imagePath));
             characterPreview.setImage(portrait);
             characterPreview.setVisible(true);
+            // for announcer sound
+            if (soundPath != null) {
+                String audioUrl = getClass().getResource(soundPath).toExternalForm();
+                AudioClip announcerVoice = new AudioClip(audioUrl);
+                announcerVoice.play();
+            }
+
         } catch (Exception e) {
             characterPreview.setVisible(false);
         }
