@@ -219,9 +219,15 @@ public class BattleController {
 
     private void handleGameOver() {
         setSkillButtonsDisabled(true);
+
+        // added this para magamit sa profilecontroller
+        boolean playerWon = playerCharacter.getHealth() > 0;
+
+        ProfileController.updateMatchResult(playerWon); // update profile if winner/loser.
+
         // ternary operator remember ? 'true' : 'false' , so meaning if playerhealth <=0 if true print cpu wins else
         // prints player wins.
-        String winner = playerCharacter.getHealth() <= 0 ? "CPU WINS!" : "PLAYER WINS!";
+        String winner = playerWon ? "PLAYER WINS!" : "CPU WINS!";
         battleLogLabel.setText("=== FIGHT OVER === " + winner);
         winnerLabel.setText(winner);
 
