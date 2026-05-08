@@ -31,6 +31,7 @@ public class ProfileController {
             Scene scene = new Scene(loader.load(), 1280, 720);
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             Stage stage = (Stage) backBtn.getScene().getWindow();
+            stage.setMaximized(false);
             stage.setScene(scene);
         } catch (Exception e) {
             e.printStackTrace();

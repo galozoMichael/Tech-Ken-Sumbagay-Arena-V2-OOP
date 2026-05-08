@@ -16,7 +16,7 @@
 
 
     <ImageView fx:id="characterPreview" fitWidth="400.0" preserveRatio="true"
-               AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" />
+               AnchorPane.bottomAnchor="530.0" AnchorPane.leftAnchor="750.0" />
 
     <VBox fx:id="infoPanel" visible="false" spacing="10" alignment="CENTER"
           AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0"

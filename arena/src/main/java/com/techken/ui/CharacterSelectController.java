@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.Random;
@@ -21,6 +23,8 @@ public class CharacterSelectController {
     @FXML private Label charStatsLabel;
     @FXML private Button backBtn;
     @FXML private Button lockInBtn;
+    @FXML private ImageView characterPreview;
+
 
     private String selectedFighterId = null; /* kinsay gi pili lol */
     private final Random random = new Random(); /* this for cpu random pick */
@@ -33,17 +37,23 @@ public class CharacterSelectController {
         // TODO: need to fix this, I removed speed feature so kaylangan sa need e revise.
         switch (id) {
             case "btnHeihachi" -> updateUI("HEIHACHI MISHIMA", "TANK",
-                    "High Health & Defense, Heavy Attacks, low speed.", "POWER: S | SPEED: C");
+                    "High Health & Defense, Heavy Attacks, low speed.", "POWER: S | SPEED: C",
+                    "/images/characters/heihachi.png");
             case "btnDevilJin" -> updateUI("DEVIL JIN", "BERSERKER",
-                    "Attack damage increases significantly when HP drops below 30%.", "POWER: A | SPEED: S");
+                    "Attack damage increases significantly when HP drops below 30%.", "POWER: A | SPEED: S",
+                    "/images/characters/deviljin.png");
             case "btnJohnnyCage" -> updateUI("JOHNNY CAGE", "SPEEDSTER",
-                    "High Evasion & Turn Priority. Strikes first.", "POWER: C | SPEED: S");
+                    "High Evasion & Turn Priority. Strikes first.", "POWER: C | SPEED: S",
+                    "images/characters/johnnycage.png");
             case "btnReptile" -> updateUI("REPTILE", "DEBUFFER",
-                    "Uses HealthSteal to drain enemy life to heal himself.", "POWER: B | SPEED: A");
+                    "Uses HealthSteal to drain enemy life to heal himself.", "POWER: B | SPEED: A",
+                    "images/characters/reptile.png");
             case "btnScorpion" -> updateUI("SCORPION", "GLASS CANNON",
-                    "High Base Attack power utilizing strong offensive moves.", "POWER: S | SPEED: A");
+                    "High Base Attack power utilizing strong offensive moves.", "POWER: S | SPEED: A",
+                    "images/characters/scorpion.png");
             case "btnTiger" -> updateUI("TIGER", "BALANCED",
-                    "Perfectly balanced stats with moderate damage output.", "POWER: B | SPEED: B");
+                    "Perfectly balanced stats with moderate damage output.", "POWER: B | SPEED: B",
+                    "images/characters/tiger.png");
             default -> {
                 charNameLabel.setText("LOCKED");
                 charBioLabel.setText("Wa himuon pani");
@@ -88,7 +98,7 @@ public class CharacterSelectController {
     public void lockIn() {
         if (selectedFighterId == null) {
             infoPanel.setVisible(true);
-            updateUI("NO FIGHTER SELECTED", "", "PILI FIRST...", "POWER: ? | SPEED: ?");
+            updateUI("NO FIGHTER SELECTED", "", "PILI FIRST...", "POWER: ? | SPEED: ?", null);
             System.out.println("Player not pick wtf!!");
             return;
         }
@@ -98,7 +108,7 @@ public class CharacterSelectController {
         * */
         BaseCharacter playerCharacter = createCharacterFromId(selectedFighterId);
         if (playerCharacter == null) {
-            updateUI("ERROR", "", "Invalid fighter selection", "");
+            updateUI("ERROR", "", "Invalid fighter selection", "", null);
             return;
         }
 
@@ -117,9 +127,11 @@ public class CharacterSelectController {
 
             // this to pass the characters to BattleController.java
             BattleController battleController = loader.getController();
-            //battleController.initMatch(playerCharacter, cpuCharacter)
+            battleController.initMatch(playerCharacter, cpuCharacter);
             Stage stage = (Stage) lockInBtn.getScene().getWindow();
+            stage.setMaximized(false); // fix sa bug na mo minimize when switching from characterselect.fxml to battle.fxml
             stage.setScene(scene);
+            stage.setMaximized(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -128,15 +140,23 @@ public class CharacterSelectController {
 
 
 
-    private void updateUI(String name, String archetype, String mechanic, String stats) {
+    private void updateUI(String name, String archetype, String mechanic, String stats, String imagePath) {
         charNameLabel.setText(name);
         charBioLabel.setText("ARCHETYPE: " + archetype + "\n" + mechanic);
         charStatsLabel.setText(stats);
+
+        try {
+            Image portrait = new Image(getClass().getResourceAsStream(imagePath));
+            characterPreview.setImage(portrait);
+            characterPreview.setVisible(true);
+        } catch (Exception e) {
+            characterPreview.setVisible(false);
+        }
     }
 
     @FXML
     public void initialize() {
-        MainApp.playMusic("SelectYourCharacter.mp3");
+        MainApp.playMusic("SelectYourFighter.mp3");
     }
 
     @FXML
@@ -146,6 +166,7 @@ public class CharacterSelectController {
             Scene scene = new Scene(loader.load(), 1280, 720);
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             Stage stage = (Stage) backBtn.getScene().getWindow();
+            stage.setMaximized(false);
             stage.setScene(scene);
         } catch (Exception e) {
             e.printStackTrace();
