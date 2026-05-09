@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.*;
 import java.util.Properties;
@@ -15,17 +16,19 @@ public class ProfileController {
     private static final String SAVE_FILE = "profile.properties";
 
     // Data
-    private String playerName = "Player1";
-    private int wins = 0;
-    private int losses = 0;
+    static String playerName = "Player1";
+    static int wins = 0;
+    static int losses = 0;
 
     @FXML private Button backBtn;
+    @FXML private Button btnResetProfile;
     @FXML private Label lblPlayerName;
     @FXML private TextField txtEditName;
     @FXML private Label lblWins;
     @FXML private Label lblLosses;
     @FXML private Label lblWinRate;
     @FXML private Label lblClickHint;
+    @FXML private VBox resetConfirmPanel;
 
     @FXML
     public void initialize() {
@@ -72,7 +75,26 @@ public class ProfileController {
         lblClickHint.setVisible(true);
     }
 
-    private void loadData() {
+    @FXML
+    private void showResetConfirm() {
+        resetConfirmPanel.setVisible(true);
+    }
+
+    @FXML
+    private void confirmReset() {
+        wins = 0;
+        losses = 0;
+        saveData();
+        refreshUI();
+        resetConfirmPanel.setVisible(false);
+    }
+
+    @FXML
+    private void cancelReset() {
+        resetConfirmPanel.setVisible(false);
+    }
+
+    public static void loadData() {
         File file = new File(SAVE_FILE);
         if (!file.exists()) return;
         try (InputStream in = new FileInputStream(file)) {
@@ -86,7 +108,7 @@ public class ProfileController {
         }
     }
 
-    private void saveData() {
+    public static void saveData() {
         try (OutputStream out = new FileOutputStream(SAVE_FILE)) {
             Properties props = new Properties();
             props.setProperty("name",   playerName);

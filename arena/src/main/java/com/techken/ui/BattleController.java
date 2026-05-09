@@ -51,7 +51,6 @@ public class BattleController {
     private int turnCounter = 1;
 
     // Switching to enums cause the code is too long if lahi lahi functions
-
     private enum State { INTRO, PLAYER_TURN, CPU_TURN, NEXT_TURN, GAME_OVER }
     private State currentState = State.INTRO;
 
@@ -66,7 +65,6 @@ public class BattleController {
     /**
      * To pass the characters na gi pili from CharacterSelectController (receiver ni)
      */
-
     public void initMatch(BaseCharacter playerCharacter, BaseCharacter cpuCharacter) {
         this.playerCharacter = playerCharacter;
         this.cpuCharacter = cpuCharacter;
@@ -109,6 +107,7 @@ public class BattleController {
                 break; // do nothing if mag wait for PLAYER_TURN or GAME_OVER
         }
     }
+
     // adds to turn counter sa taas between health bar, also starting dialogue, allows buttons to work.
     private void startNextTurn() {
         if (currentState == State.NEXT_TURN) turnCounter++;
@@ -163,7 +162,7 @@ public class BattleController {
         executeAction(cpuCharacter, playerCharacter, chosenSkill, "(CPU)", State.NEXT_TURN);
     }
 
-    private void executeAction(BaseCharacter attacker, BaseCharacter defender, BaseSkill skill, String tag,  State nextState) {
+    private void executeAction(BaseCharacter attacker, BaseCharacter defender, BaseSkill skill, String tag, State nextState) {
         attacker.resetDefense();
 
         battleLogLabel.setText(applySkill(skill, attacker, defender, tag));
@@ -219,30 +218,33 @@ public class BattleController {
 
     private void handleGameOver() {
         setSkillButtonsDisabled(true);
-
-        // added this para magamit sa profilecontroller
-        boolean playerWon = playerCharacter.getHealth() > 0;
-
-        ProfileController.updateMatchResult(playerWon); // update profile if winner/loser.
-
         // ternary operator remember ? 'true' : 'false' , so meaning if playerhealth <=0 if true print cpu wins else
         // prints player wins.
+        boolean playerWon = playerCharacter.getHealth() > 0;
         String winner = playerWon ? "PLAYER WINS!" : "CPU WINS!";
+
+        // Record win or loss to profile
+        ProfileController.loadData();
+        if (playerWon) {
+            ProfileController.wins++;
+        } else {
+            ProfileController.losses++;
+        }
+        ProfileController.saveData();
+
         battleLogLabel.setText("=== FIGHT OVER === " + winner);
         winnerLabel.setText(winner);
 
         // mao ni mo print sa summary hp when match concludes
         finalHpLabel.setText(
-                playerCharacter.getName() + "HP: " + Math.max(0, playerCharacter.getHealth())
-                + "/" + playerCharacter.getMaxHealth()
-                + "\n"
-                + cpuCharacter.getName() + " HP: " + Math.max(0, cpuCharacter.getHealth())
-                + "/" + cpuCharacter.getMaxHealth());
+                playerCharacter.getName() + " HP: " + Math.max(0, playerCharacter.getHealth())
+                        + "/" + playerCharacter.getMaxHealth()
+                        + "\n"
+                        + cpuCharacter.getName() + " HP: " + Math.max(0, cpuCharacter.getHealth())
+                        + "/" + cpuCharacter.getMaxHealth());
 
         gameOverPanel.setVisible(true);
     }
-
-
 
 
     // -----------------------------------
@@ -274,7 +276,7 @@ public class BattleController {
      */
     @FXML
     public void backToMenu() {
-         navigateToMainMenu();
+        navigateToMainMenu();
     }
 
     private void navigateToMainMenu() {
