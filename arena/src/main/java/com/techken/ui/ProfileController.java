@@ -120,41 +120,6 @@ public class ProfileController {
         }
     }
 
-    // function paras battlecontroller in order to save wins and loss since private tanan functions dri
-    public static void updateMatchResult(boolean playerWon) {
-        File file = new File(SAVE_FILE);
-        Properties props = new Properties();
-
-        // Loads first if file exist
-        if (file.exists()) {
-            try (InputStream in = new FileInputStream(file)) {
-                props.load(in);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        // if not exist then default vals:
-        String name = props.getProperty("name", "Player1");
-        int wins = Integer.parseInt(props.getProperty("wins", "0"));
-        int losses = Integer.parseInt(props.getProperty("losses", "0"));
-
-        if (playerWon) {
-            wins++;
-        } else {
-            losses++;
-        }
-
-        try (OutputStream out = new FileOutputStream(file)) {
-            props.setProperty("name",   name);
-            props.setProperty("wins",   String.valueOf(wins));
-            props.setProperty("losses", String.valueOf(losses));
-            props.store(out, "Player Profile");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
     private void refreshUI() {
         lblPlayerName.setText(playerName);
         lblWins.setText("WINS: " + wins);
