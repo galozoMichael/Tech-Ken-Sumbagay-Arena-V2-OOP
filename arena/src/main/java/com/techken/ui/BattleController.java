@@ -16,7 +16,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,8 +49,6 @@ public class BattleController {
     private final CombatMath combatMath = new CombatMath();
     private int turnCounter = 1;
 
-    // Switching to enums cause the code is too long if lahi lahi functions
-
     private enum State { INTRO, PLAYER_TURN, CPU_TURN, NEXT_TURN, GAME_OVER }
     private State currentState = State.INTRO;
 
@@ -66,35 +63,25 @@ public class BattleController {
     /**
      * To pass the characters na gi pili from CharacterSelectController (receiver ni)
      */
-
     public void initMatch(BaseCharacter playerCharacter, BaseCharacter cpuCharacter) {
         this.playerCharacter = playerCharacter;
         this.cpuCharacter = cpuCharacter;
 
-        //Display character names to be used by label stuff
         playerNameLabel.setText(playerCharacter.getName());
         cpuNameLabel.setText(cpuCharacter.getName());
 
-        // addan lang nato ug null check in case we add someone with only 1 skill for test
         BaseSkill[] skills = playerCharacter.getSkills();
-        if (skills[0] != null) {
-            skill1Btn.setText(skills[0].getSkillName());
-        }
-        if (skills[1] != null) {
-            skill2Btn.setText(skills[1].getSkillName());
-        }
-        if(skills[2] != null) {
-            skill3Btn.setText(skills[2].getSkillName());
-        }
+        if (skills[0] != null) skill1Btn.setText(skills[0].getSkillName());
+        if (skills[1] != null) skill2Btn.setText(skills[1].getSkillName());
+        if (skills[2] != null) skill3Btn.setText(skills[2].getSkillName());
 
-        refreshHealthBars(); // ill add this later.
-        setSkillButtonsDisabled(true); //for disabling turn based
+        refreshHealthBars();
+        setSkillButtonsDisabled(true);
 
         currentState = State.INTRO;
         battleLogLabel.setText(playerCharacter.getName() + " VS " + cpuCharacter.getName() + "!");
     }
 
-    // onDialogueClickStart is our gamehandler, might have to rename this tho
     @FXML
     public void onDialogueClickStart() {
         switch(currentState) {
@@ -106,10 +93,10 @@ public class BattleController {
                 executeCpuTurn();
                 break;
             default:
-                break; // do nothing if mag wait for PLAYER_TURN or GAME_OVER
+                break;
         }
     }
-    // adds to turn counter sa taas between health bar, also starting dialogue, allows buttons to work.
+
     private void startNextTurn() {
         if (currentState == State.NEXT_TURN) turnCounter++;
         turnLabel.setText("TURN " + turnCounter);
@@ -118,41 +105,21 @@ public class BattleController {
         currentState = State.PLAYER_TURN;
     }
 
-
     // -----------------------------------
     //      SKILL BUTTON STUFF
     // -----------------------------------
-    @FXML
-    public void onSkill1() {
-        executePlayerSkill(0);
-    }
-
-    @FXML
-    public void onSkill2() {
-        executePlayerSkill(1);
-    }
-
-    @FXML
-    public void onSkill3() {
-        executePlayerSkill(2);
-    }
-
-    @FXML
-    public void onQuit() {
-        navigateToMainMenu();
-    }
+    @FXML public void onSkill1() { executePlayerSkill(0); }
+    @FXML public void onSkill2() { executePlayerSkill(1); }
+    @FXML public void onSkill3() { executePlayerSkill(2); }
+    @FXML public void onQuit()   { navigateToMainMenu(); }
 
     // -----------------------------------
     //     TURN BASED COMBAT HERE
     // -----------------------------------
-
     private void executePlayerSkill(int skillIndex) {
-        if (currentState != State.PLAYER_TURN || playerCharacter == null || cpuCharacter == null) {
-            return;
-        }
+        if (currentState != State.PLAYER_TURN || playerCharacter == null || cpuCharacter == null) return;
         BaseSkill chosenSkill = playerCharacter.getSkills()[skillIndex];
-        if (chosenSkill == null)
-            return;
+        if (chosenSkill == null) return;
 
         setSkillButtonsDisabled(true);
         executeAction(playerCharacter, cpuCharacter, chosenSkill, "(Player)", State.CPU_TURN);
@@ -163,14 +130,12 @@ public class BattleController {
         executeAction(cpuCharacter, playerCharacter, chosenSkill, "(CPU)", State.NEXT_TURN);
     }
 
-    private void executeAction(BaseCharacter attacker, BaseCharacter defender, BaseSkill skill, String tag,  State nextState) {
+    private void executeAction(BaseCharacter attacker, BaseCharacter defender, BaseSkill skill, String tag, State nextState) {
         attacker.resetDefense();
-
         battleLogLabel.setText(applySkill(skill, attacker, defender, tag));
         refreshHealthBars();
 
-        // if health of either not 0 then continue
-        if(playerCharacter.getHealth() <= 0 || cpuCharacter.getHealth() <= 0) {
+        if (playerCharacter.getHealth() <= 0 || cpuCharacter.getHealth() <= 0) {
             currentState = State.GAME_OVER;
             handleGameOver();
         } else {
@@ -178,71 +143,66 @@ public class BattleController {
         }
     }
 
-
     /**
      * Applies skill effects if value is > 0, and prints dialogue
-     *    Not gonna use stringbuilder kay hugaw ang append
      */
     private String applySkill(BaseSkill skill, BaseCharacter attacker, BaseCharacter defender, String tag) {
         List<String> logLines = new ArrayList<>();
 
-        // Line 1 : Announces the moves
         logLines.add(String.format("%s %s uses %s!", attacker.getName(), tag, skill.getSkillName()));
 
-        // Apply damage and announce text
         int damage = combatMath.calculateDamage(skill, defender);
-        if (damage > 0) { // add ta ug if because 'GuardAction' skills deal nothin
+        if (damage > 0) {
             defender.takeDamage(damage);
             logLines.add(String.format("Deals %d damage to %s", damage, defender.getName()));
 
-            // Apply heal or lifesteal and announce text
             int healAmount = skill.getHealAmount(damage);
-            if (healAmount > 0) { // we check 0 only if naay heal.
+            if (healAmount > 0) {
                 int newHealth = Math.min(attacker.getHealth() + healAmount, attacker.getMaxHealth());
                 attacker.setHealth(newHealth);
                 logLines.add(String.format("%s recovers %d HP!", attacker.getName(), healAmount));
             }
         }
 
-        // Apply defense boost (might need to change this, idk how it works,
-        // ah nvm gets ko gamay it adds on to defense basically or minuses the final damage in CombatMath)
         int defBoost = skill.getDefenseBoost();
-        if (defBoost > 0) { // we check 0 only if naay defense
+        if (defBoost > 0) {
             attacker.setDefense(attacker.getDefense() + defBoost);
             logLines.add(String.format("%s boosts defense by +%d", attacker.getName(), defBoost));
         }
 
-        // Join all lines with line break
         return String.join("\n", logLines);
     }
 
-
     private void handleGameOver() {
         setSkillButtonsDisabled(true);
-        // ternary operator remember ? 'true' : 'false' , so meaning if playerhealth <=0 if true print cpu wins else
-        // prints player wins.
-        String winner = playerCharacter.getHealth() <= 0 ? "CPU WINS!" : "PLAYER WINS!";
+
+        boolean playerWon = playerCharacter.getHealth() > 0;
+        String winner = playerWon ? "PLAYER WINS!" : "CPU WINS!";
+
+        // Record win or loss to profile
+        ProfileController.loadData();
+        if (playerWon) {
+            ProfileController.wins++;
+        } else {
+            ProfileController.losses++;
+        }
+        ProfileController.saveData();
+
         battleLogLabel.setText("=== FIGHT OVER === " + winner);
         winnerLabel.setText(winner);
-
-        // mao ni mo print sa summary hp when match concludes
         finalHpLabel.setText(
-                playerCharacter.getName() + "HP: " + Math.max(0, playerCharacter.getHealth())
-                + "/" + playerCharacter.getMaxHealth()
-                + "\n"
-                + cpuCharacter.getName() + " HP: " + Math.max(0, cpuCharacter.getHealth())
-                + "/" + cpuCharacter.getMaxHealth());
+                playerCharacter.getName() + " HP: " + Math.max(0, playerCharacter.getHealth())
+                        + "/" + playerCharacter.getMaxHealth()
+                        + "\n"
+                        + cpuCharacter.getName() + " HP: " + Math.max(0, cpuCharacter.getHealth())
+                        + "/" + cpuCharacter.getMaxHealth());
 
         gameOverPanel.setVisible(true);
     }
 
-
-
-
     // -----------------------------------
     //     UI HELPER STUFF
     // -----------------------------------
-
     private void refreshHealthBars() {
         int playerHP = Math.max(0, playerCharacter.getHealth());
         int playerMaxHP = playerCharacter.getMaxHealth();
@@ -263,12 +223,10 @@ public class BattleController {
 
     /**
      * Menu Navigation (Back To Menu Button)
-     *
-     * need to wrapper function kay fxml can't do fxml statement stuff
      */
     @FXML
     public void backToMenu() {
-         navigateToMainMenu();
+        navigateToMainMenu();
     }
 
     private void navigateToMainMenu() {

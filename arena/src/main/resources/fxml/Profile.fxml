@@ -29,11 +29,10 @@
     <VBox spacing="24" alignment="CENTER"
           styleClass="info-panel"
           AnchorPane.topAnchor="140.0"
-          AnchorPane.bottomAnchor="120.0"
+          AnchorPane.bottomAnchor="180.0"
           AnchorPane.leftAnchor="390.0"
           AnchorPane.rightAnchor="390.0">
 
-        <!-- Clickable Name -->
         <Label fx:id="lblPlayerName"
                text="Player1"
                styleClass="char-name-text"
@@ -42,7 +41,6 @@
                wrapText="true"
                style="-fx-cursor: hand;" />
 
-        <!-- Hint text -->
         <Label fx:id="lblClickHint"
                text="click name to edit"
                styleClass="char-bio-text"
@@ -50,7 +48,6 @@
                maxWidth="Infinity"
                opacity="0.5" />
 
-        <!-- Text field (hidden by default) -->
         <TextField fx:id="txtEditName"
                    promptText="Enter new name..."
                    alignment="CENTER"
@@ -63,24 +60,55 @@
                           -fx-font-size: 22px;
                           -fx-alignment: center;" />
 
-        <!-- Stats Row -->
         <HBox spacing="40" alignment="CENTER">
-            <Label fx:id="lblWins"
-                   text="WINS: 0"
-                   styleClass="char-stats-text"
-                   alignment="CENTER" />
-            <Label fx:id="lblLosses"
-                   text="LOSSES: 0"
-                   styleClass="char-stats-text"
-                   alignment="CENTER" />
+            <Label fx:id="lblWins"   text="WINS: 0"   styleClass="char-stats-text" alignment="CENTER" />
+            <Label fx:id="lblLosses" text="LOSSES: 0" styleClass="char-stats-text" alignment="CENTER" />
         </HBox>
 
-        <!-- Win Rate -->
         <Label fx:id="lblWinRate"
                text="WIN RATE: 0.0%"
                styleClass="char-bio-text"
                maxWidth="Infinity"
                alignment="CENTER" />
+
+    </VBox>
+
+    <!-- Reset Profile Button -->
+    <HBox spacing="20" alignment="CENTER"
+          AnchorPane.bottomAnchor="60.0"
+          AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0">
+
+        <Button fx:id="btnResetProfile" text="🗑 RESET PROFILE"
+                styleClass="menu-btn"
+                onAction="#showResetConfirm" />
+
+    </HBox>
+
+    <!-- In-Game Reset Confirmation Overlay (hidden by default) -->
+    <VBox fx:id="resetConfirmPanel" visible="false"
+          alignment="CENTER" spacing="20"
+          styleClass="info-panel"
+          AnchorPane.topAnchor="240.0"
+          AnchorPane.bottomAnchor="240.0"
+          AnchorPane.leftAnchor="390.0"
+          AnchorPane.rightAnchor="390.0">
+
+        <Label text="RESET PROFILE?"
+               styleClass="char-name-text"
+               alignment="CENTER"
+               maxWidth="Infinity" />
+
+        <Label text="This will set your wins and losses back to 0."
+               styleClass="char-bio-text"
+               alignment="CENTER"
+               maxWidth="Infinity"
+               wrapText="true" />
+
+        <HBox spacing="20" alignment="CENTER">
+            <Button text="✔ CONFIRM" styleClass="menu-btn" onAction="#confirmReset" />
+            <Button text="✖ CANCEL"  styleClass="menu-btn" onAction="#cancelReset" />
+        </HBox>
 
     </VBox>
 
