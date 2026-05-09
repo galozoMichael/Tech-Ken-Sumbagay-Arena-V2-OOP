@@ -38,33 +38,42 @@ public class CharacterSelectController {
         // TODO: need to fix this, I removed speed feature so kaylangan sa need e revise.
         switch (id) {
             case "btnHeihachi" -> updateUI("HEIHACHI MISHIMA", "TANK",
-                    "High Health & Defense, Heavy Attacks, low speed.", "POWER: S | SPEED: C",
+                    "Extremely durable with massive health and high defense.", "HP: 140 | DEF: 22 | MAX DMG: 28",
                     "/images/characters/heihachi.png",
                     "/audio/announcer_heihachi.mp3");
-            case "btnDevilJin" -> updateUI("DEVIL JIN", "BERSERKER",
-                    "Attack damage increases significantly when HP drops below 30%.", "POWER: A | SPEED: S",
+            case "btnDevilJin" -> updateUI("DEVIL JIN", "BRUISER",
+                    "Combines solid stats with life-stealing attacks to outlast opponents.", "HP: 110 | DEF: 15 | MAX DMG: 25",
                     "/images/characters/heihachi.png", // /images/characters/deviljin.png * this is for voice test restore later
                     "/audio/announcer_deviljin.mp3");
-            case "btnJohnnyCage" -> updateUI("JOHNNY CAGE", "SPEEDSTER",
-                    "High Evasion & Turn Priority. Strikes first.", "POWER: C | SPEED: S",
+            case "btnJohnnyCage" -> updateUI("JOHNNY CAGE", "BRAWLER",
+                    "Aggressive fighter with high-damage combos. Frail defense.", "HP: 105 | DEF: 12 | MAX DMG: 28",
                     "/images/characters/heihachi.png", // /images/characters/johnnycage.png
                     "/audio/announcer_johnny.mp3");
-            case "btnReptile" -> updateUI("REPTILE", "DEBUFFER",
-                    "Uses HealthSteal to drain enemy life to heal himself.", "POWER: B | SPEED: A",
+            case "btnReptile" -> updateUI("REPTILE", "SUSTAIN",
+                    "Drains enemy life to heal himself. Masters a battle of attrition.", "HP: 100 | DEF: 10 | MAX DMG: 18",
                     "/images/characters/heihachi.png", // /images/characters/reptile.png
                     "/audio/announcer_reptile.mp3");
-            case "btnScorpion" -> updateUI("SCORPION", "GLASS CANNON",
-                    "High Base Attack power utilizing strong offensive moves.", "POWER: S | SPEED: A",
+            case "btnScorpion" -> updateUI("SCORPION", "AGGRESSOR",
+                    "Relentless offense with devastating attacks, but vulnerable to counters.", "HP: 105 | DEF: 10 | MAX DMG: 30",
                     "/images/characters/heihachi.png", // /images/characters/scorpion.png
                     "/audio/announcer_scorpion.mp3");
             case "btnTiger" -> updateUI("TIGER", "BALANCED",
-                    "Perfectly balanced stats with moderate damage output.", "POWER: B | SPEED: B",
+                    "Well-rounded fighter with solid health, defense, and consistent damage.", "HP: 120 | DEF: 15 | MAX DMG: 25",
                     "/images/characters/heihachi.png", // /images/characters/tiger.png
                     "/audio/announcer_tiger.mp3");
+            case "btnManny" -> updateUI("MANNY PACQUAIO", "GLASS CANNON",
+                    "Packs a devastating punch with extreme damage, but has the lowest health.",
+                    "HP: 95 | DEF: 12 | MAX DMG: 35",
+                    "/images/characters/heihachi.png", //images/characters/manny.png
+                    "/audio/announcer_manny.mp3");
+            case "btnRandomize" -> updateUI("???", "RANDOM",
+                    "A random fighter will be selected.",
+                    "HP: ??? | DEF: ??? | MAX DMG: ???",
+                    "/images/characters/heihachi.png", "/audio/announcer_random.mp3");
             default -> {
-                charNameLabel.setText("LOCKED");
+                charNameLabel.setText("LOCKED");            // just leave this be
                 charBioLabel.setText("Wa himuon pani");
-                charStatsLabel.setText("POWER: ? | SPEED: ?");
+                charStatsLabel.setText("HP: ? | DEF: ? | MAX DMG: ?");
             }
         }
     }
@@ -81,22 +90,25 @@ public class CharacterSelectController {
             case "btnReptile" -> new Reptile();
             case "btnScorpion" -> new Scorpion();
             case "btnTiger" -> new Tiger();
+            case "btnManny" -> new MannyPacquiao();
+            case "btnRandomize" -> selectCPUCharacter();
             default -> null;
         };
     }
 
     /**
-     * CPU Character random pick, basically mo random from 1-6 lol
+     * CPU Character random pick, basically mo random from 1-6 lol also for player if they pick random.
      */
     private BaseCharacter selectCPUCharacter() {
-        int pick = random.nextInt(6) + 1;
+        int pick = random.nextInt(7) + 1;
         return switch (pick) {
             case 1 -> new HeihachiMisihima();
             case 2 -> new DevilJin();
             case 3 -> new JohnnyCage();
             case 4 -> new Reptile();
             case 5 -> new Scorpion();
-            default -> new Tiger();
+            case 6 -> new Tiger();
+            default -> new MannyPacquiao();
         };
     }
 

@@ -283,6 +283,16 @@
     -fx-background-size: cover;
 }
 
+#btnManny {
+    -fx-background-image: url("/Images/MannyPacman-Icon.png");
+    -fx-background-size: cover;
+}
+
+#btnRandomize {
+    -fx-background-image: url("/Images/Randomize-Icon.png");
+    -fx-background-size: cover;
+}
+
 .battle-pane {
     -fx-background-color: #050505;
     -fx-background-size: cover;

@@ -6,11 +6,10 @@ import com.techken.skills.actions.AttackAction;
 public class Tiger extends BaseCharacter {
 
     public Tiger() {
-        super("Tiger", 130, 25, 20);
+        super("Tiger", 120, 25, 15);
 
-        // Skills: Moderate damage Attack Action
-        this.skills[0] = new AttackAction("Flying Dragon Kick", 25);
-        this.skills[1] = new AttackAction("Bicycle Kick", 25);
-        this.skills[2] = new AttackAction("Fireball", 30);
+        this.skills[0] = new AttackAction("Flying Dragon Kick", 22);
+        this.skills[1] = new AttackAction("Bicycle Kick", 22);
+        this.skills[2] = new AttackAction("Fireball", 25);
     }
 }
