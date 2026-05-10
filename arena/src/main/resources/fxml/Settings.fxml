@@ -45,17 +45,20 @@
         </HBox>
 
         <Region prefHeight="10" />
-
-        <!-- Action Buttons -->
-        <HBox spacing="20">
-            <Button fx:id="saveBtn" onAction="#onSave" styleClass="menu-btn" text="SAVE" />
-            <Button fx:id="resetBtn" onAction="#onReset" styleClass="menu-btn" text="RESET DEFAULTS" />
-        </HBox>
-
     </VBox>
 
-    <HBox spacing="20" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="40.0">
-        <Button onAction="#onBack" styleClass="icon-btn" text="← BACK" />
-    </HBox>
+
+
+        <!-- Action Buttons -->
+        <HBox alignment="CENTER_LEFT" spacing="0"
+            AnchorPane.bottomAnchor="30.0"
+            AnchorPane.leftAnchor="40.0"
+            AnchorPane.rightAnchor="40.0">
+            <Button onAction="#onBack" styleClass="icon-btn" text="← BACK" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="saveBtn" onAction="#onSave" styleClass="menu-btn" text="SAVE" />
+            <Region prefWidth="20" />
+            <Button fx:id="resetBtn" onAction="#onReset" styleClass="menu-btn" text="RESET DEFAULTS" />
+        </HBox>
 
 </AnchorPane>

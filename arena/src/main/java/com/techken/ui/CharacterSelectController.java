@@ -43,33 +43,34 @@ public class CharacterSelectController {
                     "/audio/announcer_heihachi.mp3");
             case "btnDevilJin" -> updateUI("DEVIL JIN", "BRUISER",
                     "Combines solid stats with life-stealing attacks to outlast opponents.", "HP: 110 | DEF: 15 | MAX DMG: 25",
-                    "/images/characters/heihachi.png", // /images/characters/deviljin.png * this is for voice test restore later
+                    "/images/characters/deviljin.png",
                     "/audio/announcer_deviljin.mp3");
             case "btnJohnnyCage" -> updateUI("JOHNNY CAGE", "BRAWLER",
                     "Aggressive fighter with high-damage combos. Frail defense.", "HP: 105 | DEF: 12 | MAX DMG: 28",
-                    "/images/characters/heihachi.png", // /images/characters/johnnycage.png
+                    "/images/characters/johnnycage.png ",
                     "/audio/announcer_johnny.mp3");
             case "btnReptile" -> updateUI("REPTILE", "SUSTAIN",
                     "Drains enemy life to heal himself. Masters a battle of attrition.", "HP: 100 | DEF: 10 | MAX DMG: 18",
-                    "/images/characters/heihachi.png", // /images/characters/reptile.png
+                    "/images/characters/reptile.png ",
                     "/audio/announcer_reptile.mp3");
             case "btnScorpion" -> updateUI("SCORPION", "AGGRESSOR",
                     "Relentless offense with devastating attacks, but vulnerable to counters.", "HP: 105 | DEF: 10 | MAX DMG: 30",
-                    "/images/characters/heihachi.png", // /images/characters/scorpion.png
+                    "/images/characters/scorpion.png",
                     "/audio/announcer_scorpion.mp3");
             case "btnTiger" -> updateUI("TIGER", "BALANCED",
                     "Well-rounded fighter with solid health, defense, and consistent damage.", "HP: 120 | DEF: 15 | MAX DMG: 25",
-                    "/images/characters/heihachi.png", // /images/characters/tiger.png
+                    "/images/characters/tiger.png",
                     "/audio/announcer_tiger.mp3");
             case "btnManny" -> updateUI("MANNY PACQUAIO", "GLASS CANNON",
                     "Packs a devastating punch with extreme damage, but has the lowest health.",
                     "HP: 95 | DEF: 12 | MAX DMG: 35",
-                    "/images/characters/heihachi.png", //images/characters/manny.png
+                    "/images/characters/manny.png ",
                     "/audio/announcer_manny.mp3");
             case "btnRandomize" -> updateUI("???", "RANDOM",
                     "A random fighter will be selected.",
                     "HP: ??? | DEF: ??? | MAX DMG: ???",
-                    "/images/characters/heihachi.png", "/audio/announcer_random.mp3");
+                    "/images/characters/random.png",
+                    "/audio/announcer_random.mp3");
             default -> {
                 charNameLabel.setText("LOCKED");            // just leave this be
                 charBioLabel.setText("Wa himuon pani");
