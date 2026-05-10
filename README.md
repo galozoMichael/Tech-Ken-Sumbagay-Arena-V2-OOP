@@ -17,13 +17,12 @@ JEdi3k - Jose Ely P. Perez<br>
 * [UML Diagram](#uml-diagram)
 * [Case Diagram](#case-diagram)
 ## 🧑‍💻 Progress Photos
-<img width="800" alt="Main Menu Progress" src="https://github.com/user-attachments/assets/8f664f93-8214-4b3b-8713-1db0561d55de" />
-<img width="800" alt="Fighter Select Progress" src="https://github.com/user-attachments/assets/1cb4624c-cf97-435b-a0d2-6e0ad1d7c6fa" />
-<img width="800" alt="Battle Screen Progress" src="https://github.com/user-attachments/assets/38f38ab0-c3c7-47e1-970b-44c4f1f22b04" />
-<img width="800" alt="Profile Progress" src="https://github.com/user-attachments/assets/d9285f0e-2fcc-4ccf-bd0b-d0977599a3ec" />
-<img width="800" alt="Credits Progress" src="https://github.com/user-attachments/assets/07836c9c-b3b4-4a90-b76e-563b58ebb0e1" />
-
-
+<img width="800" alt="Main Menu Progress" src="https://github.com/user-attachments/assets/4ac34a16-7cf7-4461-8387-1604d5025fcf" />
+<img width="800" alt="Fighter Select Progress" src="https://github.com/user-attachments/assets/f7bf147c-652d-40e6-a62e-9cc9c0d42e11" />
+<img width="800" alt="Battle Screen Progress" src="https://github.com/user-attachments/assets/8c5d2e28-3926-4877-9011-cf85e40726ef" />
+<img width="800" alt="Profile Progress" src="https://github.com/user-attachments/assets/20eb05f8-b697-4d2d-916b-82e8fd4afb08" />
+<img width="800" alt="Credits Progress" src="https://github.com/user-attachments/assets/11624c51-28f8-4263-9abd-0112a01c5374" />
+<img width="800" alt="Settings Progress" src="https://github.com/user-attachments/assets/e7b94163-c656-46fa-9e7a-2cf25a4cf30b" />
 
 
 ## 📊 UML Diagram
