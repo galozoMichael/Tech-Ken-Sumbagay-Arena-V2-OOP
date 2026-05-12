@@ -10,7 +10,7 @@
 
         <ImageView fitWidth="420.0" preserveRatio="true" styleClass="main-logo">
             <image>
-                <Image url="@../Images/Tech-KEN-TITLE-BG.png" />
+                <Image url="@../Images/menuandtextures/Tech-KEN-TITLE-BG.png" />
             </image>
         </ImageView>
 
