@@ -1,5 +1,6 @@
 package com.techken.ui;
 
+import com.techken.utils.SaveManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,13 +8,9 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import java.io.*;
 import java.util.Properties;
 
 public class ProfileController {
-
-    // Save file location
-    private static final String SAVE_FILE = "profile.properties";
 
     // Data
     static String playerName = "Player1";
@@ -95,29 +92,14 @@ public class ProfileController {
     }
 
     public static void loadData() {
-        File file = new File(SAVE_FILE);
-        if (!file.exists()) return;
-        try (InputStream in = new FileInputStream(file)) {
-            Properties props = new Properties();
-            props.load(in);
-            playerName = props.getProperty("name", "Player1");
-            wins       = Integer.parseInt(props.getProperty("wins",   "0"));
-            losses     = Integer.parseInt(props.getProperty("losses", "0"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Properties props = SaveManager.loadProfileData();
+        playerName = props.getProperty("name", "Player1");
+        wins = Integer.parseInt(props.getProperty("wins", "0"));
+        losses = Integer.parseInt(props.getProperty("losses", "0"));
     }
 
     public static void saveData() {
-        try (OutputStream out = new FileOutputStream(SAVE_FILE)) {
-            Properties props = new Properties();
-            props.setProperty("name",   playerName);
-            props.setProperty("wins",   String.valueOf(wins));
-            props.setProperty("losses", String.valueOf(losses));
-            props.store(out, "Player Profile");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        SaveManager.saveProfileData(playerName, wins, losses);
     }
 
     private void refreshUI() {

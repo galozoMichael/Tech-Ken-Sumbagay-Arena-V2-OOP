@@ -1,9 +1,11 @@
 package com.techken.ui;
 
+import com.techken.MainApp;
 import com.techken.ai.AILogic;
 import com.techken.model.BaseCharacter;
 import com.techken.skills.BaseSkill;
 import com.techken.utils.CombatMath;
+import com.techken.utils.SaveManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -88,6 +90,7 @@ public class BattleController {
         refreshHealthBars(); // ill add this later.
         setSkillButtonsDisabled(true); //for disabling turn based
 
+        MainApp.playMusic("OngoingBattleAudio.mp3");
         currentState = State.INTRO;
         battleLogLabel.setText(playerCharacter.getName() + " VS " + cpuCharacter.getName() + "!");
     }
@@ -218,22 +221,29 @@ public class BattleController {
 
     private void handleGameOver() {
         setSkillButtonsDisabled(true);
+        MainApp.playMusic("BattleGameoverAudio.mp3");
         // ternary operator remember ? 'true' : 'false' , so meaning if playerhealth <=0 if true print cpu wins else
         // prints player wins.
         boolean playerWon = playerCharacter.getHealth() > 0;
-        String winner = playerWon ? "PLAYER WINS!" : "CPU WINS!";
+        String winner = playerWon ? playerCharacter.getName() : cpuCharacter.getName();
+        String winnerDisplay = playerWon ? "PLAYER WINS!" : "CPU WINS!";
 
         // Record win or loss to profile
         ProfileController.loadData();
         if (playerWon) {
             ProfileController.wins++;
+            MainApp.playMusic("PlayerVictoryAudio.mp3");
         } else {
             ProfileController.losses++;
+            MainApp.playMusic("PlayerDefeatAudio.mp3");
         }
         ProfileController.saveData();
+        
+        // Save match result to match history
+        SaveManager.saveMatchResult(playerCharacter.getName(), cpuCharacter.getName(), winner);
 
-        battleLogLabel.setText("=== FIGHT OVER === " + winner);
-        winnerLabel.setText(winner);
+        battleLogLabel.setText("=== FIGHT OVER === " + winnerDisplay);
+        winnerLabel.setText(winnerDisplay);
 
         // mao ni mo print sa summary hp when match concludes
         finalHpLabel.setText(
