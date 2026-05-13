@@ -9,9 +9,9 @@ import java.util.Properties;
 
 public class SaveManager {
 
-    private static final String PROFILE_FILE = "Tech-Ken-Sumbagay-Arena-V2-OOP/profile.properties";
-    private static final String SETTINGS_FILE = "Tech-Ken-Sumbagay-Arena-V2-OOP/settings.properties";
-    private static final String MATCH_HISTORY_FILE = "Tech-Ken-Sumbagay-Arena-V2-OOP/match_history.properties";
+    private static final String PROFILE_FILE = "profile.properties";
+    private static final String SETTINGS_FILE = "settings.properties";
+    private static final String MATCH_HISTORY_FILE = "match_history.properties";
 
     public static boolean saveProfileData(String playerName, int wins, int losses) {
         Properties properties = new Properties();
