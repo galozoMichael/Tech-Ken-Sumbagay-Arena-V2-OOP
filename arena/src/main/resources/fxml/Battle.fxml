@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
 
@@ -18,6 +19,15 @@
     <Label fx:id="turnLabel" text="TURN 1" styleClass="dialogue-text"
            AnchorPane.topAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
            alignment="CENTER" />
+
+    <!-- Character Sprites Layer: Put this right here! -->
+    <ImageView fx:id="playerImageView" fitHeight="350.0" fitWidth="300.0"
+               layoutX="150.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
+
+    <ImageView fx:id="cpuImageView" fitHeight="350.0" fitWidth="300.0"
+               layoutX="830.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
+
+    <!-- ... followed by your VBox for Player Side and CPU Side ... -->
 
     <!-- PLAYER SIDE (top-left) -->
     <VBox spacing="5" alignment="CENTER_LEFT" AnchorPane.topAnchor="60.0" AnchorPane.leftAnchor="40.0">

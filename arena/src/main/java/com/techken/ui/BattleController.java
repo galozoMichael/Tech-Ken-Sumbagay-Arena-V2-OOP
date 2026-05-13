@@ -15,7 +15,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
 
 import java.util.Random;
 import java.util.ArrayList;
@@ -42,6 +45,11 @@ public class BattleController {
     @FXML private Label winnerLabel;
     @FXML private Label finalHpLabel;
     @FXML private Button backToMenuBtn;
+    @FXML private ImageView playerImageView;
+    @FXML private ImageView cpuImageView;
+
+    private Image playerIdle, playerHurt;
+    private Image cpuIdle, cpuHurt;
 
     // - Game State Stuff -
     private BaseCharacter playerCharacter;
@@ -71,24 +79,41 @@ public class BattleController {
         this.playerCharacter = playerCharacter;
         this.cpuCharacter = cpuCharacter;
 
-        //Display character names to be used by label stuff
+        // 1. Existing Label logic
         playerNameLabel.setText(playerCharacter.getName());
         cpuNameLabel.setText(cpuCharacter.getName());
 
-        // addan lang nato ug null check in case we add someone with only 1 skill for test
-        BaseSkill[] skills = playerCharacter.getSkills();
-        if (skills[0] != null) {
-            skill1Btn.setText(skills[0].getSkillName());
-        }
-        if (skills[1] != null) {
-            skill2Btn.setText(skills[1].getSkillName());
-        }
-        if(skills[2] != null) {
-            skill3Btn.setText(skills[2].getSkillName());
+        // 2. NEW: Character Image Loading Logic
+        try {
+            // Clean names to match file naming (e.g., "DevilJin" -> "deviljin")
+            String pName = playerCharacter.getName().toLowerCase();
+            String cName = cpuCharacter.getName().toLowerCase();
+
+            playerIdle = new Image(getClass().getResourceAsStream("/Images/" + pName + "-Idle.png"));
+            playerHurt = new Image(getClass().getResourceAsStream("/Images/" + pName + "-Hurt.png"));
+
+            cpuIdle = new Image(getClass().getResourceAsStream("/Images/" + cName + "-Idle.png"));
+            cpuHurt = new Image(getClass().getResourceAsStream("/Images/" + cName + "-Hurt.png"));
+
+            // Set initial idle images
+            playerImageView.setImage(playerIdle);
+            cpuImageView.setImage(cpuIdle);
+
+            // Mirror the CPU so they face the player
+            cpuImageView.setScaleX(-1);
+
+        } catch (Exception e) {
+            System.out.println("Image loading failed: " + e.getMessage());
         }
 
-        refreshHealthBars(); // ill add this later.
-        setSkillButtonsDisabled(true); //for disabling turn based
+        // 3. Existing Skill Button logic
+        BaseSkill[] skills = playerCharacter.getSkills();
+        if (skills[0] != null) skill1Btn.setText(skills[0].getSkillName());
+        if (skills[1] != null) skill2Btn.setText(skills[1].getSkillName());
+        if (skills[2] != null) skill3Btn.setText(skills[2].getSkillName());
+
+        refreshHealthBars();
+        setSkillButtonsDisabled(true);
 
         currentState = State.INTRO;
         battleLogLabel.setText(playerCharacter.getName() + " VS " + cpuCharacter.getName() + "!");
@@ -238,6 +263,14 @@ public class BattleController {
 
 
 
+    private void triggerHurtAnimation(ImageView view, Image hurtImg, Image idleImg) {
+        view.setImage(hurtImg);
+
+        // Wait for 0.3 seconds then switch back to idle
+        PauseTransition pause = new PauseTransition(Duration.millis(300));
+        pause.setOnFinished(event -> view.setImage(idleImg));
+        pause.play();
+    }
 
     // -----------------------------------
     //     UI HELPER STUFF
