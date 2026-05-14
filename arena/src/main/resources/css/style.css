@@ -259,22 +259,22 @@
 }
 
 #btnDevilJin {
-    -fx-background-image: url("/Images/fightericons/DevilJin-icon.jpg");
+    -fx-background-image: url("/Images/fightericons/DevilJin-Icon.jpg");
     -fx-background-size: cover;
 }
 
 #btnJohnnyCage {
-    -fx-background-image: url("/Images/fightericons/JohnnyCage-icon.png");
+    -fx-background-image: url("/Images/fightericons/JohnnyCage-Icon.png");
     -fx-background-size: cover;
 }
 
 #btnReptile {
-    -fx-background-image: url("/Images/fightericons/Reptile-icon.png");
+    -fx-background-image: url("/Images/fightericons/Reptile-Icon.png");
     -fx-background-size: cover;
 }
 
 #btnScorpion {
-    -fx-background-image: url("/Images/fightericons/Scorpion-icon.png");
+    -fx-background-image: url("/Images/fightericons/Scorpion-Icon.png");
     -fx-background-size: cover;
 }
 
@@ -284,7 +284,7 @@
 }
 
 #btnManny {
-    -fx-background-image: url("/Images/fightericons/MannyPacman-Icon.png");
+    -fx-background-image: url("/Images/fightericons/MannyPacquiao-Icon.png");
     -fx-background-size: cover;
 }
 

@@ -20,15 +20,6 @@
            AnchorPane.topAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
            alignment="CENTER" />
 
-    <!-- Character Sprites Layer: Put this right here! -->
-    <ImageView fx:id="playerImageView" fitHeight="350.0" fitWidth="300.0"
-               layoutX="150.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
-
-    <ImageView fx:id="cpuImageView" fitHeight="350.0" fitWidth="300.0"
-               layoutX="830.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
-
-    <!-- ... followed by your VBox for Player Side and CPU Side ... -->
-
     <!-- PLAYER SIDE (top-left) -->
     <VBox spacing="5" alignment="CENTER_LEFT" AnchorPane.topAnchor="60.0" AnchorPane.leftAnchor="40.0">
         <Label fx:id="playerNameLabel" text="PLAYER" styleClass="char-name-text" />
@@ -93,6 +84,9 @@
     </HBox>
 
     <!-- GAME OVER OVERLAY (hidden by default) -->
+    <!-- ... (Keep everything at the top the same) ... -->
+
+    <!-- GAME OVER OVERLAY (hidden by default) -->
     <VBox fx:id="gameOverPanel" visible="false" alignment="CENTER" spacing="20"
           styleClass="dialogue-box"
           AnchorPane.topAnchor="200.0" AnchorPane.bottomAnchor="200.0"
@@ -102,5 +96,12 @@
         <Label fx:id="finalHpLabel" text="" styleClass="char-stats-text" wrapText="true" textAlignment="CENTER" />
         <Button fx:id="backToMenuBtn" text="BACK TO MENU" styleClass="action-btn" onAction="#backToMenu" />
     </VBox>
+
+    <!-- MOVED TO THE BOTTOM SO THEY ARE ON TOP OF THE BACKGROUND -->
+    <ImageView fx:id="playerImageView" fitHeight="350.0" fitWidth="300.0"
+               layoutX="150.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
+
+    <ImageView fx:id="cpuImageView" fitHeight="350.0" fitWidth="300.0"
+               layoutX="830.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
 
 </AnchorPane>
