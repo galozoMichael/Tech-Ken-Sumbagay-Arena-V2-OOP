@@ -15,8 +15,9 @@
     <Button fx:id="backBtn" onAction="#backToMenu" text="◀ BACK" styleClass="back-btn" AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="40.0" />
 
 
-    <ImageView fx:id="characterPreview" fitWidth="400.0" preserveRatio="true"
-               AnchorPane.bottomAnchor="530.0" AnchorPane.leftAnchor="750.0" />
+    <StackPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="130.0">
+        <ImageView fx:id="characterPreview" fitWidth="400.0"  preserveRatio="true" />
+    </StackPane>
 
     <VBox fx:id="infoPanel" visible="false" spacing="10" alignment="CENTER"
           AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0"
@@ -38,8 +39,8 @@
 
         <Button fx:id="btnScorpion" styleClass="char-slot" GridPane.columnIndex="0" GridPane.rowIndex="1" onAction="#selectFighter"/>
         <Button fx:id="btnTiger" styleClass="char-slot" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#selectFighter"/>
-        <Button fx:id="btnChar7" styleClass="char-slot" GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#selectFighter"/>
-        <Button fx:id="btnChar8" styleClass="char-slot" GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#selectFighter"/>
+        <Button fx:id="btnManny" styleClass="char-slot" GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#selectFighter"/>
+        <Button fx:id="btnRandomize" styleClass="char-slot" GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#selectFighter"/>
 
     </GridPane>
 

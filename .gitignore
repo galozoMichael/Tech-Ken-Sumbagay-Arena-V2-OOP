@@ -9,3 +9,8 @@ out/
 # OS junk
 .DS_Store
 Thumbs.db
+
+# Game Save / Local Configs
+profile.properties
+match_history.properties
+settings.properties

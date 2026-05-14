@@ -34,7 +34,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(loader.load(), 1280, 720);
         scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
         stage.setTitle("Tech-Ken: Sumbagay Arena");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/logo_transparent.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/TK logo.png")));
         stage.setMaximized(false); // for fullscreen transition inig press start
         stage.setScene(scene);
         stage.show();

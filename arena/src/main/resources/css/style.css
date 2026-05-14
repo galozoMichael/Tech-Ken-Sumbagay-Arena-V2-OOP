@@ -1,6 +1,6 @@
 .root-pane {
     -fx-background-color: #050505;
-    -fx-background-image: url("/images/Tech-Ken-MainMenuBG.png");
+    -fx-background-image: url("/Images/menuandtextures/Tech-Ken-MainMenuBG.png");
     -fx-background-size: cover;
     -fx-background-position: center;
 }
@@ -25,7 +25,7 @@
 /* --- STANDARD MENU BUTTONS DESIGN --- */
 .menu-btn {
     /* Menu Button Designs and Textures */
-    -fx-background-image: url("/Images/BUTTONRED.png");
+    -fx-background-image: url("/Images/menuandtextures/BUTTONRED.png");
     -fx-background-size: 100% 100%;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -50,7 +50,7 @@
 /* HOVER SA BUTTON DESIGN */
 .menu-btn:hover {
     -fx-background-color: transparent;
-    -fx-background-image: url("/Images/BUTTONRED.png");
+    -fx-background-image: url("/Images/menuandtextures/BUTTONRED.png");
     -fx-opacity: 1.0;
     -fx-text-fill: #FFD700;
     -fx-scale-x: 1.03;
@@ -97,7 +97,7 @@
 /* The background for the character screen */
 .character-pane {
     -fx-background-color: #050505;
-    -fx-background-image: url("/Images/Tech-Ken-CharacterBG.png");
+    -fx-background-image: url("/Images/menuandtextures/Tech-Ken-CharacterBG.png");
     -fx-background-size: cover;
     -fx-background-position: center;
 }
@@ -254,32 +254,42 @@
 
 /* ROSTER GRID PORTRAITS */
 #btnHeihachi {
-    -fx-background-image: url("/Images/Heihachi-Icon.png");
+    -fx-background-image: url("/Images/fightericons/Heihachi-Icon.png");
     -fx-background-size: cover;
 }
 
 #btnDevilJin {
-    -fx-background-image: url("/Images/DevilJin-icon.jpg");
+    -fx-background-image: url("/Images/fightericons/DevilJin-icon.jpg");
     -fx-background-size: cover;
 }
 
 #btnJohnnyCage {
-    -fx-background-image: url("/Images/JohnnyCage-icon.png");
+    -fx-background-image: url("/Images/fightericons/JohnnyCage-icon.png");
     -fx-background-size: cover;
 }
 
 #btnReptile {
-    -fx-background-image: url("/Images/Reptile-icon.png");
+    -fx-background-image: url("/Images/fightericons/Reptile-icon.png");
     -fx-background-size: cover;
 }
 
 #btnScorpion {
-    -fx-background-image: url("/Images/Scorpion-icon.png");
+    -fx-background-image: url("/Images/fightericons/Scorpion-icon.png");
     -fx-background-size: cover;
 }
 
 #btnTiger {
-    -fx-background-image: url("/Images/Tiger-Icon.png");
+    -fx-background-image: url("/Images/fightericons/Tiger-Icon.png");
+    -fx-background-size: cover;
+}
+
+#btnManny {
+    -fx-background-image: url("/Images/fightericons/MannyPacman-Icon.png");
+    -fx-background-size: cover;
+}
+
+#btnRandomize {
+    -fx-background-image: url("/Images/fightericons/Randomize-Icon.png");
     -fx-background-size: cover;
 }
 
@@ -289,9 +299,9 @@
     -fx-background-position: center;
 }
 
-.arena-1 { -fx-background-image: url("/Images/ARENABG1.png"); }
-.arena-2 { -fx-background-image: url("/Images/ARENABG2.png"); }
-.arena-3 { -fx-background-image: url("/Images/ARENABG3.png"); }
+.arena-1 { -fx-background-image: url("/Images/arena/ARENABG1.png"); }
+.arena-2 { -fx-background-image: url("/Images/arena/ARENABG2.png"); }
+.arena-3 { -fx-background-image: url("/Images/arena/ARENABG3.png"); }
 
 
 
@@ -327,7 +337,7 @@
 
 .action-btn {
     -fx-background-color: transparent;
-    -fx-background-image: url("/Images/BUTTONRED.png");
+    -fx-background-image: url("/Images/menuandtextures/BUTTONRED.png");
     -fx-background-size: 100% 100%;
     -fx-font-family: "Press Start 2P";
     -fx-font-size: 20px;

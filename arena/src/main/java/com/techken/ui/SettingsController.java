@@ -36,7 +36,10 @@ public class SettingsController {
         if (MainApp.mediaPlayer != null) {
             double currentVolume = MainApp.mediaPlayer.getVolume() * 100;
             musicSlider.setValue(currentVolume);
-            musicValueLabel.setText(String.format("%.0f%%", currentVolume));
+            musicValueLabel.setText(String.format("%.0f%%", (double) musicSlider.getValue()));
+        } else {
+            musicSlider.setValue(80);
+            musicValueLabel.setText("80%");
         }
 
         // Live update label and volume as slider moves
