@@ -1,7 +1,6 @@
 package com.techken.model.fighters;
 
 import com.techken.model.BaseCharacter;
-import com.techken.skills.BaseSkill;
 import com.techken.skills.actions.AttackAction;
 import com.techken.skills.actions.HealthStealDamageAction;
 

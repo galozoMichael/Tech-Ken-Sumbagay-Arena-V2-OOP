@@ -6,7 +6,6 @@ import com.techken.model.BaseCharacter;
 import com.techken.skills.BaseSkill;
 import com.techken.utils.CombatMath;
 import com.techken.utils.SaveManager;
-import javafx.event.ActionEvent;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

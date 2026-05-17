@@ -2,8 +2,6 @@ package com.techken.utils;
 
 import com.techken.model.BaseCharacter;
 import com.techken.skills.BaseSkill;
-import com.techken.skills.actions.AttackAction;
-import com.techken.skills.actions.HealthStealDamageAction;
 
 public class CombatMath {
 
