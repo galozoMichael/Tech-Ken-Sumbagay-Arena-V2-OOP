@@ -266,7 +266,7 @@ public class BattleController {
                         + "\n"
                         + cpuCharacter.getName() + " HP: " + Math.max(0, cpuCharacter.getHealth())
                         + "/" + cpuCharacter.getMaxHealth());
-
+        gameOverPanel.toFront();
         gameOverPanel.setVisible(true);
     }
 
