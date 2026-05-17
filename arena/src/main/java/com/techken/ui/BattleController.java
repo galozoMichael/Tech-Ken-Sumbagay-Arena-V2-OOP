@@ -176,14 +176,10 @@ public class BattleController {
         attacker.resetDefense();
 
         // ---> NEW: Trigger the attack animation
-        if (skill.getSkillName().equals("Electric Wind God Fist") || skill.getSkillName().equals("Stonehead")) {
-
-            if (attacker == playerCharacter) {
-                playAttackAnimation(playerSprite, attacker.getName());
-            } else {
-                playAttackAnimation(cpuSprite, attacker.getName());
-            }
-
+        if (attacker == playerCharacter) {
+            playSkillAnimation(playerSprite, attacker.getName(), skill.getSkillName());
+        } else {
+            playSkillAnimation(cpuSprite, attacker.getName(), skill.getSkillName());
         }
 
         battleLogLabel.setText(applySkill(skill, attacker, defender, tag));
@@ -342,6 +338,17 @@ public class BattleController {
 
         javafx.animation.PauseTransition pause = new javafx.animation.PauseTransition(javafx.util.Duration.seconds(0.6));
         pause.setOnFinished(event -> setSprite(attackerSprite, characterName, "idle"));
+        pause.play();
+    }
+
+    private void playSkillAnimation(javafx.scene.image.ImageView actorSprite, String characterName, String skillName) {
+        // This takes "Vajra Block" and turns it into "vajra block"
+        String stateName = skillName.toLowerCase();
+
+        setSprite(actorSprite, characterName, stateName);
+
+        javafx.animation.PauseTransition pause = new javafx.animation.PauseTransition(javafx.util.Duration.seconds(0.6));
+        pause.setOnFinished(event -> setSprite(actorSprite, characterName, "idle"));
         pause.play();
     }
 }
