@@ -8,7 +8,7 @@ public class HeihachiMisihima extends BaseCharacter {
 
     public HeihachiMisihima() {
         // Tank Stats: High Health (150), Low Speed (5), High Defense (25)
-        super("Heihachi Mishima", 140, 5, 22);
+        super("Heihachi Mishima", 140, 5, 22, "heihachimishima");
         
         this.skills[0] = new AttackAction("Electric Wind God Fist", 28); // nerfed gamay kay op
         this.skills[1] = new AttackAction("Stonehead", 18); // also dis

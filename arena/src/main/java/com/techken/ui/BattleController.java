@@ -7,18 +7,20 @@ import com.techken.skills.BaseSkill;
 import com.techken.utils.CombatMath;
 import com.techken.utils.SaveManager;
 import javafx.event.ActionEvent;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-
+import javafx.util.Duration;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,8 @@ public class BattleController {
     @FXML private Label cpuNameLabel;
     @FXML private ProgressBar cpuHealthBar;
     @FXML private Label cpuHpLabel;
+    @FXML private ImageView playerSpriteView;
+    @FXML private ImageView cpuSpriteView;
     @FXML private Label battleLogLabel;
     @FXML private VBox dialogueBox;
     @FXML private GridPane buttonGrid;
@@ -96,6 +100,11 @@ public class BattleController {
 
         refreshHealthBars(); // ill add this later.
         setSkillButtonsDisabled(true); //for disabling turn based
+
+        playerCharacter.setPose(BaseCharacter.Pose.STANCE);
+        cpuCharacter.setPose(BaseCharacter.Pose.STANCE);
+        loadCharacterSprite(playerCharacter, playerSpriteView);
+        loadCharacterSprite(cpuCharacter, cpuSpriteView);
 
         MainApp.playMusic("OngoingBattleAudio.mp3");
         currentState = State.INTRO;
@@ -174,6 +183,8 @@ public class BattleController {
 
     private void executeAction(BaseCharacter attacker, BaseCharacter defender, BaseSkill skill, String tag, State nextState) {
         attacker.resetDefense();
+        ImageView attackerView = attacker == playerCharacter ? playerSpriteView : cpuSpriteView;
+        setCharacterPoseForSkill(attacker, attackerView, skill);
 
         // ---> NEW: Trigger the attack animation
         if (attacker == playerCharacter) {
@@ -191,6 +202,7 @@ public class BattleController {
             handleGameOver();
         } else {
             currentState = nextState;
+            restoreCharacterPoseAfterDelay();
         }
     }
 
@@ -256,6 +268,16 @@ public class BattleController {
         // Save match result to match history
         SaveManager.saveMatchResult(playerCharacter.getName(), cpuCharacter.getName(), winner);
 
+        if (playerWon) {
+            playerCharacter.setPose(BaseCharacter.Pose.WIN);
+            cpuCharacter.setPose(BaseCharacter.Pose.LOSE);
+        } else {
+            playerCharacter.setPose(BaseCharacter.Pose.LOSE);
+            cpuCharacter.setPose(BaseCharacter.Pose.WIN);
+        }
+        refreshCharacterSprite(playerCharacter, playerSpriteView);
+        refreshCharacterSprite(cpuCharacter, cpuSpriteView);
+
         battleLogLabel.setText("=== FIGHT OVER === " + winnerDisplay);
         winnerLabel.setText(winnerDisplay);
 
@@ -291,6 +313,62 @@ public class BattleController {
         skill1Btn.setDisable(disabled);
         skill2Btn.setDisable(disabled);
         skill3Btn.setDisable(disabled);
+    }
+
+    private void loadCharacterSprite(BaseCharacter character, ImageView view) {
+        if (character == null || view == null) {
+            return;
+        }
+        applySpriteOrientation(view);
+        try {
+            Image sprite = new Image(getClass().getResourceAsStream(character.getSpritePath(character.getCurrentPose())));
+            view.setImage(sprite);
+        } catch (Exception e) {
+            view.setImage(null);
+        }
+    }
+
+    private void refreshCharacterSprite(BaseCharacter character, ImageView view) {
+        if (character == null || view == null) {
+            return;
+        }
+        applySpriteOrientation(view);
+        try {
+            Image sprite = new Image(getClass().getResourceAsStream(character.getSpritePath(character.getCurrentPose())));
+            view.setImage(sprite);
+        } catch (Exception e) {
+            // keep existing image if pose asset is missing
+        }
+    }
+
+    private void applySpriteOrientation(ImageView view) {
+        if (view == cpuSpriteView) {
+            view.setScaleX(-1);
+        } else {
+            view.setScaleX(1);
+        }
+    }
+
+    private void setCharacterPoseForSkill(BaseCharacter attacker, ImageView attackerView, BaseSkill skill) {
+        if (attacker == null || attackerView == null) {
+            return;
+        }
+        BaseCharacter.Pose pose = attacker.getPoseForSkill(skill);
+        attacker.setPose(pose);
+        refreshCharacterSprite(attacker, attackerView);
+    }
+
+    private void restoreCharacterPoseAfterDelay() {
+        PauseTransition pause = new PauseTransition(Duration.seconds(0.75));
+        pause.setOnFinished(event -> {
+            if (currentState != State.GAME_OVER) {
+                playerCharacter.setPose(BaseCharacter.Pose.STANCE);
+                cpuCharacter.setPose(BaseCharacter.Pose.STANCE);
+                refreshCharacterSprite(playerCharacter, playerSpriteView);
+                refreshCharacterSprite(cpuCharacter, cpuSpriteView);
+            }
+        });
+        pause.play();
     }
 
     /**

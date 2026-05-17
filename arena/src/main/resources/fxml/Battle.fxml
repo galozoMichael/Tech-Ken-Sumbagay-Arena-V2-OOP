@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.image.ImageView?>
 
 <?import javafx.scene.image.ImageView?>
 <AnchorPane fx:id="battleArenaRoot"
@@ -38,6 +39,14 @@
     <Label text="VS" styleClass="dialogue-text"
            AnchorPane.topAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
            alignment="CENTER" />
+
+    <!-- PLAYER AND CPU CHARACTER SPRITES (edit fitWidth to adjust size) -->
+    <ImageView fx:id="playerSpriteView" preserveRatio="true" smooth="true"
+               fitWidth="560.0" fitHeight="560.0"
+               AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="140.0" />
+    <ImageView fx:id="cpuSpriteView" preserveRatio="true" smooth="true"
+               fitWidth="560.0" fitHeight="560.0"
+               AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="140.0" />
 
     <!-- =============== BOTTOM BAR (Pokemon-style) =============== -->
     <!-- LEFT: Dialogue text box  |  RIGHT: 2x2 button grid -->

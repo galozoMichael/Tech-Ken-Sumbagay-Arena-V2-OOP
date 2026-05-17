@@ -7,7 +7,7 @@ public class JohnnyCage extends BaseCharacter {
 
     public JohnnyCage() {
         // Moderate Health (100), High Speed (50) for turn priority, Moderate Defense (15)
-        super("Johnny Cage", 105, 50, 12);
+        super("Johnny Cage", 105, 50, 12, "johnnycage");
 
         // Skillset: Fast AttackActions
         this.skills[0] = new AttackAction("Shadow Kick", 22);

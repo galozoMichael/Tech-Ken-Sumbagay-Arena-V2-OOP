@@ -8,7 +8,7 @@ import com.techken.skills.actions.HealthStealDamageAction;
 public class DevilJin extends BaseCharacter {
 
     public DevilJin() {
-        super("Devil Jin", 110, 20, 15);
+        super("Devil Jin", 110, 20, 15, "deviljin");
 
         this.skills[0] = new AttackAction("Laser Scraper", 20);
         this.skills[1] = new AttackAction("Demon Paw", 25);
