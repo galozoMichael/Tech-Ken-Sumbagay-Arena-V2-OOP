@@ -434,7 +434,7 @@ public class BattleController {
 
     // --- SOUND EFFECT HELPER ---
     private void playSoundEffect(String skillName) {
-        String fileName = skillName.toLowerCase() + ".mp3";
+        String fileName = skillName.toLowerCase() + ".m4a";
 
         try {
 
