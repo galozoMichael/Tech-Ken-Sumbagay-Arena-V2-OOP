@@ -44,6 +44,9 @@ public class BattleController {
     @FXML private Label winnerLabel;
     @FXML private Label finalHpLabel;
     @FXML private Button backToMenuBtn;
+    // THIS IS NEW CODE
+    @FXML private javafx.scene.image.ImageView playerSprite;
+    @FXML private javafx.scene.image.ImageView cpuSprite;
 
     // - Game State Stuff -
     private BaseCharacter playerCharacter;
@@ -74,6 +77,10 @@ public class BattleController {
         //Display character names to be used by label stuff
         playerNameLabel.setText(playerCharacter.getName());
         cpuNameLabel.setText(cpuCharacter.getName());
+
+        // ---> NEW CODE HERE
+        setSprite(playerSprite, playerCharacter.getName(), "idle");
+        setSprite(cpuSprite, cpuCharacter.getName(), "idle");
 
         // addan lang nato ug null check in case we add someone with only 1 skill for test
         BaseSkill[] skills = playerCharacter.getSkills();
@@ -167,6 +174,13 @@ public class BattleController {
 
     private void executeAction(BaseCharacter attacker, BaseCharacter defender, BaseSkill skill, String tag, State nextState) {
         attacker.resetDefense();
+
+        // ---> NEW: Trigger the attack animation based on who is attacking
+        if (attacker == playerCharacter) {
+            playAttackAnimation(playerSprite, attacker.getName());
+        } else {
+            playAttackAnimation(cpuSprite, attacker.getName());
+        }
 
         battleLogLabel.setText(applySkill(skill, attacker, defender, tag));
         refreshHealthBars();
@@ -300,5 +314,28 @@ public class BattleController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    // --- NEW CODE HERE ---
+
+    // Automatically finds the image based on Name + State (e.g., "HEIHACHI MISHIMA" + "idle" -> "heihachi mishima_idle.png")
+    private void setSprite(javafx.scene.image.ImageView targetView, String characterName, String state) {
+        // Format the name to match your files (lowercase)
+        String fileName = characterName.toLowerCase() + "_" + state + ".png";
+        try {
+            javafx.scene.image.Image img = new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/" + fileName));
+            targetView.setImage(img);
+        } catch (Exception e) {
+            System.out.println("Could not find sprite: " + fileName);
+        }
+    }
+
+    // Swaps to attack image, waits 0.6 seconds, then snaps back to idle
+    private void playAttackAnimation(javafx.scene.image.ImageView attackerSprite, String characterName) {
+        setSprite(attackerSprite, characterName, "attack");
+
+        javafx.animation.PauseTransition pause = new javafx.animation.PauseTransition(javafx.util.Duration.seconds(0.6));
+        pause.setOnFinished(event -> setSprite(attackerSprite, characterName, "idle"));
+        pause.play();
     }
 }
