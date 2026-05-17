@@ -28,24 +28,24 @@
                 <Label text="ROLE" textFill="#666" GridPane.columnIndex="2" GridPane.rowIndex="0" />
 
                 <Label text="[DEV 1]" textFill="#ff2e2e" GridPane.rowIndex="1" />
-                <Label text="[NAME HERE]" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Michael S. Galozo" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <Label text="LEAD ARCHITECT" textFill="#ff2e2e" GridPane.columnIndex="2" GridPane.rowIndex="1" />
 
                 <Label text="[DEV 2]" textFill="#ff2e2e" GridPane.rowIndex="2" />
-                <Label text="[NAME HERE]" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Label text="DATABASE ENG" textFill="#ff2e2e" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Label text=" Karl Vincent V. Illusorio" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="MULTIMEDIA &amp; SYSTEMS" textFill="#ff2e2e" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 
                 <Label text="[DEV 3]" textFill="#ff2e2e" GridPane.rowIndex="3" />
-                <Label text="[NAME HERE]" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <Label text="UX RESEARCH" textFill="#ff2e2e" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <Label text="Jose Ely P. Perez" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label text="UI DESIGNER" textFill="#ff2e2e" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 
                 <Label text="[DEV 4]" textFill="#ff2e2e" GridPane.rowIndex="4" />
-                <Label text="[NAME HERE]" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <Label text="GAME LOGIC" textFill="#ff2e2e" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                <Label text="Jarrell Nett D. Homecillo" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="LOGO GRAPHICS &amp; PROFILES" textFill="#ff2e2e" GridPane.columnIndex="2" GridPane.rowIndex="4" />
 
                 <Label text="[DEV 5]" textFill="#ff2e2e" GridPane.rowIndex="5" />
-                <Label text="[NAME HERE]" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                <Label text="INTEGRATION" textFill="#ff2e2e" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                <Label text="John Frankline R. Go" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label text="SYSTEM SETTINGS" textFill="#ff2e2e" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             </children>
         </GridPane>
 
