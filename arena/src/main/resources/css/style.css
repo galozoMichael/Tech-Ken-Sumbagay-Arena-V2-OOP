@@ -343,9 +343,9 @@
     -fx-background-radius: 8px;
     -fx-text-fill: white;
     -fx-font-family: "Arial";
-    -fx-font-size: 20px;
+    -fx-font-size: 17px;
     -fx-font-weight: bold;
-    -fx-padding: 10px;
+    -fx-padding: 5px;
     -fx-cursor: hand;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 229, 255, 0.4), 10, 0, 0, 0);
 }
