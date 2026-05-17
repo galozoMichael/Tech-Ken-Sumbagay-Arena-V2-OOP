@@ -193,6 +193,8 @@ public class BattleController {
             playSkillAnimation(cpuSprite, attacker.getName(), skill.getSkillName());
         }
 
+        playSoundEffect(skill.getSkillName());
+
         battleLogLabel.setText(applySkill(skill, attacker, defender, tag));
         refreshHealthBars();
 
@@ -428,5 +430,23 @@ public class BattleController {
         javafx.animation.PauseTransition pause = new javafx.animation.PauseTransition(javafx.util.Duration.seconds(0.6));
         pause.setOnFinished(event -> setSprite(actorSprite, characterName, "idle"));
         pause.play();
+    }
+
+    // --- SOUND EFFECT HELPER ---
+    private void playSoundEffect(String skillName) {
+        String fileName = skillName.toLowerCase() + ".mp3";
+
+        try {
+
+            java.net.URL audioUrl = getClass().getResource("/Sounds/" + fileName);
+            if (audioUrl != null) {
+                javafx.scene.media.AudioClip clip = new javafx.scene.media.AudioClip(audioUrl.toExternalForm());
+                clip.play();
+            } else {
+                System.out.println("Could not find sound: " + fileName);
+            }
+        } catch (Exception e) {
+            System.out.println("Error playing sound: " + fileName);
+        }
     }
 }
