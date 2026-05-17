@@ -96,11 +96,11 @@
 
 
     <!--THIS IS THE NEW CODE! -->
-    <ImageView fx:id="playerSprite" fitWidth="300" fitHeight="400" preserveRatio="true"
-               AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="150.0" />
+    <ImageView fx:id="playerSprite" fitWidth="700" fitHeight="800" preserveRatio="true"
+               AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="100.0" />
 
-    <ImageView fx:id="cpuSprite" fitWidth="300" fitHeight="400" preserveRatio="true"
-               AnchorPane.bottomAnchor="200.0" AnchorPane.rightAnchor="150.0"
+    <ImageView fx:id="cpuSprite" fitWidth="700" fitHeight="800" preserveRatio="true"
+               AnchorPane.bottomAnchor="200.0" AnchorPane.rightAnchor="100.0"
                scaleX="-1"/>
 
 

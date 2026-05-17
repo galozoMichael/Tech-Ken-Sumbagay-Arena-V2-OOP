@@ -175,11 +175,15 @@ public class BattleController {
     private void executeAction(BaseCharacter attacker, BaseCharacter defender, BaseSkill skill, String tag, State nextState) {
         attacker.resetDefense();
 
-        // ---> NEW: Trigger the attack animation based on who is attacking
-        if (attacker == playerCharacter) {
-            playAttackAnimation(playerSprite, attacker.getName());
-        } else {
-            playAttackAnimation(cpuSprite, attacker.getName());
+        // ---> NEW: Trigger the attack animation
+        if (skill.getSkillName().equals("Electric Wind God Fist") || skill.getSkillName().equals("Stonehead")) {
+
+            if (attacker == playerCharacter) {
+                playAttackAnimation(playerSprite, attacker.getName());
+            } else {
+                playAttackAnimation(cpuSprite, attacker.getName());
+            }
+
         }
 
         battleLogLabel.setText(applySkill(skill, attacker, defender, tag));
@@ -323,10 +327,12 @@ public class BattleController {
         // Format the name to match your files (lowercase)
         String fileName = characterName.toLowerCase() + "_" + state + ".png";
         try {
+            System.out.println("ATTEMPTING TO LOAD: /Images/" + fileName); // Let's see what it's looking for
             javafx.scene.image.Image img = new javafx.scene.image.Image(getClass().getResourceAsStream("/Images/" + fileName));
             targetView.setImage(img);
         } catch (Exception e) {
-            System.out.println("Could not find sprite: " + fileName);
+            System.out.println("FAILED TO LOAD: " + fileName);
+            e.printStackTrace();
         }
     }
 
